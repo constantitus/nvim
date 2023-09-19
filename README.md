@@ -18,8 +18,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 ```
 Or just get the AUR package, whatever works..
 
-Clone this repository into your $HOME.config folder
-run `nvim +PackerSync`
+Clone this repository into your $HOME.config folder and run `nvim +PackerSync`
 
 Configure to your liking
 
