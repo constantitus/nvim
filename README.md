@@ -22,6 +22,20 @@ Clone this repository into your $HOME.config folder and run `nvim +PackerSync`
 
 Configure to your liking
 
+PS: I use CAPSLOCK instead instead of Esc in vim. 
+My CAPSLOCK key is bound to escape and the capslock function is bound to SHIFT+CAPSLOCK.
+>/etc/X11/xorg.conf.d/00-keyboard.conf
+```
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "Xkblayout" "us"
+        Option "XkbOptions" "caps:escape_shifted_capslock"
+
+EndSection```
+
+
+
 ## TODO
 - [ ] god, i need a vertical monitor so bad
 - [ ] tweak the  configs and change the keybinds
