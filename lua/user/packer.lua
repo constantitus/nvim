@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
     use('norcalli/nvim-colorizer.lua')
     use('lukas-reineke/indent-blankline.nvim')
+    use('rcarriga/nvim-notify')
+    use('nvim-tree/nvim-web-devicons')
+    use('lewis6991/gitsigns.nvim')
 
     use {
         'nvim-lualine/lualine.nvim',
