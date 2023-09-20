@@ -22,15 +22,22 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/nvim-treesitter-context')
 	use('nvim-treesitter/playground')
+    use('nvim-tree/nvim-tree.lua')
 	use('theprimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
     use('norcalli/nvim-colorizer.lua')
+    use('lukas-reineke/indent-blankline.nvim')
 
-    use({"ziontee113/color-picker.nvim",
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    use {"ziontee113/color-picker.nvim",
         config = function()
         require("color-picker")
-        end})
+        end}
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -54,4 +61,17 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
+
+    use({
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup {
+                icons = false,
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    })
+
 end)
