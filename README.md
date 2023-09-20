@@ -32,7 +32,8 @@ Section "InputClass"
         Option "Xkblayout" "us"
         Option "XkbOptions" "caps:escape_shifted_capslock"
 
-EndSection```
+EndSection
+```
 
 
 
