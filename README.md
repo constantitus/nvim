@@ -23,10 +23,16 @@ Clone this repository into your $HOME.config folder and run `nvim +PackerSync`
 Configure to your liking
 
 PS: I use CAPSLOCK instead instead of Esc in vim. 
-My CAPSLOCK is rebound to escape.
->/etc/default/keyboard
+My CAPSLOCK key is bound to escape and the capslock function is bound to SHIFT+CAPSLOCK.
+>/etc/X11/xorg.conf.d/00-keyboard.conf
 ```
-XKBOPTIONS="caps:swapescape"
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "Xkblayout" "us"
+        Option "XkbOptions" "caps:escape_shifted_capslock"
+
+EndSection
 ```
 
 
