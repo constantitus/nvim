@@ -4,6 +4,9 @@ vim.g.mapleader = " "
 -- exit to directory
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- move selection into find and replace
+vim.keymap.set("v", "<leader>fr", [["qy:%s/<C-r>"//g<left><left>]])
+
 -- moving selected items with J K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
