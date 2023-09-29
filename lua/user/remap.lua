@@ -50,7 +50,6 @@ vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
 vim.keymap.set("n", "<leader>wr", "<cmd>set wrap!<cr>")
 
 
-
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)

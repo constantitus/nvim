@@ -5,44 +5,34 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.3',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
-
-	use({
-		'catppuccin/nvim',
-		as = 'catpuccin',
-		config = function()
-			vim.cmd('colorscheme catppuccin')
-		end
-	})
-
+    -- feedback
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/nvim-treesitter-context')
 	use('nvim-treesitter/playground')
-    use('nvim-tree/nvim-tree.lua')
-	use('theprimeagen/harpoon')
-	use('mbbill/undotree')
-	use('tpope/vim-fugitive')
-    use('norcalli/nvim-colorizer.lua')
-    use('lukas-reineke/indent-blankline.nvim')
-    use('rcarriga/nvim-notify')
-    use('nvim-tree/nvim-web-devicons')
-    use('lewis6991/gitsigns.nvim')
-
-
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-
-    use {"ziontee113/color-picker.nvim",
+        "folke/trouble.nvim",
         config = function()
-        require("color-picker")
-        end}
+            require("trouble").setup {
+                -- icons = false,
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
+    use('github/copilot.vim')
+    use('rcarriga/nvim-notify')
 
+    -- navigation
+    use('nvim-tree/nvim-tree.lua')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
+    use('theprimeagen/harpoon')
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -66,16 +56,29 @@ return require('packer').startup(function(use)
         }
     }
 
-    use({
-        "folke/trouble.nvim",
+    -- appearance
+    use('norcalli/nvim-colorizer.lua')
+    use('lukas-reineke/indent-blankline.nvim')
+    use('nvim-tree/nvim-web-devicons')
+    use('lewis6991/gitsigns.nvim')
+    use {
+        'catppuccin/nvim',
+        as = 'catpuccin',
         config = function()
-            require("trouble").setup {
-                icons = false,
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            vim.cmd('colorscheme catppuccin')
         end
-    })
+    }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    -- utility
+    use('folke/zen-mode.nvim')
+    use {"ziontee113/color-picker.nvim",
+        config = function()
+            require("color-picker")
+        end
+    }
 
 end)
