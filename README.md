@@ -34,6 +34,13 @@ Section "InputClass"
 
 EndSection
 ```
+>hyprland.conf
+```
+input {
+    kb_layout = us
+    kb_options = caps:escape_shifted_capslock
+}
+```
 
 
 
