@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
     -- appearance
     use('norcalli/nvim-colorizer.lua')
     use('lukas-reineke/indent-blankline.nvim')
+    use('hiphish/rainbow-delimiters.nvim')
     use('nvim-tree/nvim-web-devicons')
     use('lewis6991/gitsigns.nvim')
     use {
