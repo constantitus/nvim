@@ -6,13 +6,13 @@ vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- move selection into find and replace
-vim.keymap.set("v", "<leader>fr", [["qy:%s/<C-r>q//g<left><left>]])
+vim.keymap.set("v", "<leader>r", [["qy:%s/<C-r>q//g<left><left>]])
 
 -- moving selected items with J K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- J leeps your cursor location 
+-- J leeps your cursor location
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- centers cursor
@@ -35,7 +35,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>") -- fuck that
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -53,4 +53,3 @@ vim.keymap.set("n", "<leader>wr", "<cmd>set wrap!<cr>")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
-
