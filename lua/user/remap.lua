@@ -2,7 +2,8 @@
 vim.g.mapleader = " "
 
 -- exit to directory
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- disabled, using tree
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- move selection into find and replace
 vim.keymap.set("v", "<leader>fr", [["qy:%s/<C-r>q//g<left><left>]])

@@ -76,9 +76,18 @@ return require('packer').startup(function(use)
 
     -- utility
     use('folke/zen-mode.nvim')
-    use {"ziontee113/color-picker.nvim",
+    use {
+        "ziontee113/color-picker.nvim",
         config = function()
             require("color-picker")
+        end
+    }
+    use {
+        'smoka7/hop.nvim',
+        tag = '*', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     }
 
