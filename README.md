@@ -47,6 +47,6 @@ input {
 
 ## TODO
 - [ ] god, i need a vertical monitor so bad
-- [p] tweak the  configs and change the keybinds
-- [p] actually learn vim, lmao
+- [x] tweak the  configs and change the keybinds
+- [ ] actually learn vim, lmao
 
