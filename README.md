@@ -18,7 +18,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 ```
 Or just get the AUR package, whatever works..
 
-Clone this repository into your $HOME.config folder and run `nvim +PackerSync`
+Clone this repository into your $HOME.config folder and run `nvim +PackerSync`.\
+Then run `:checkhealth` in nvim and install what you need with your package manager.
 
 Configure to your liking
 
@@ -46,6 +47,6 @@ input {
 
 ## TODO
 - [ ] god, i need a vertical monitor so bad
-- [ ] tweak the  configs and change the keybinds
-- [ ] actually learn vim, lmao
+- [p] tweak the  configs and change the keybinds
+- [p] actually learn vim, lmao
 
