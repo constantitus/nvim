@@ -42,6 +42,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+vim.keymap.set("n", "<leader>l", function() vim.diagnostic.open_float() end)
+
 lsp.setup()
 
 vim.diagnostic.config({
