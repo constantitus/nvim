@@ -48,5 +48,5 @@ input {
 ## TODO
 - [ ] god, i need a vertical monitor so bad
 - [x] tweak the  configs and change the keybinds
-- [ ] actually learn vim, lmao
-
+- [x] actually learn vim, lmao
+- [x] greeter with cool ascii
