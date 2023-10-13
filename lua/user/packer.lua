@@ -57,6 +57,10 @@ return require('packer').startup(function(use)
     }
 
     -- appearance
+    use {
+        'goolord/alpha-nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' },
+    }
     use('norcalli/nvim-colorizer.lua')
     use('lukas-reineke/indent-blankline.nvim')
     use('hiphish/rainbow-delimiters.nvim')
