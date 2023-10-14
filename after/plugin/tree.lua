@@ -27,6 +27,8 @@ local function my_on_attach(bufnr)
     vim.keymap.set('n', '<leader>cd', api.tree.change_root_to_node)
 end
 
+vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
+
 -- pass to setup along with your other options
 require("nvim-tree").setup {
     ---

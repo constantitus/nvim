@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+vim.keymap.set("n", "<leader>gs", "<cmd>tabnew<CR><cmd>0G<CR>")
 
 vim.keymap.set("n", "<leader>ga", "<cmd>G add %<CR>")
 vim.keymap.set("n", "<leader>gA", "<cmd>G add -A<CR>")
