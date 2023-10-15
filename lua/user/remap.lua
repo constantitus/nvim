@@ -30,8 +30,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<C-[>", "<cmd>resize -3<CR>")
-vim.keymap.set("n", "<C-]>", "<cmd>resize +3<CR>")
+
 
 -- disables
 vim.keymap.set("i", "<C-c>", "<Esc>")
