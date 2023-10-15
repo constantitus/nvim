@@ -2,7 +2,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
+	-- Packer can manaage itself
 	use 'wbthomason/packer.nvim'
 
     -- feedback
@@ -73,10 +73,12 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme catppuccin')
         end
     }
-    use {
+    --[[ use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+    }--]]
+    use('tamton-aquib/staline.nvim')
+    use('nvim-tree/nvim-web-devicons')
 
     -- utility
     use('folke/zen-mode.nvim')
