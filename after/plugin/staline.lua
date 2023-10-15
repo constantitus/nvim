@@ -5,47 +5,53 @@ require('staline').setup {
         right_separator = "",
         full_path       = false,
         -- line_column     = "[%l/%L] :%c 並%p%% ", -- `:h stl` to see all flags.
-        line_column = "[%l:%c] 並%p%% ",
+        line_column = "%p%% 並%l:%c ",
 
         fg              = "#986fec",  -- Foreground text color.
         bg              = "none",     -- Default background is transparent.
         inactive_color  = "#303030",
         inactive_bgcolor = "none",
         true_colors     = false,      -- true lsp colors.
-        font_active     = "none",     -- "bold", "italic", "bold,italic", etc
+        font_active     = "bold",     -- "bold", "italic", "bold,italic", etc
 
         mod_symbol      = "  ",
         lsp_client_symbol = " ",
         lsp_client_character_length = 12, -- Shorten LSP client names.
         branch_symbol   = " ",
-        cool_symbol     = " ",       -- Change this to override default OS icon.
+        cool_symbol     = "   ",       -- Change this to override default OS icon.
         null_ls_symbol = "",          -- A symbol to indicate that a source is coming from null-ls
     },
     mode_colors = {
-        n  = "#181a23",
-		i  = "#181a23",
-		ic = "#181a23",
-		c  = "#181a23",
-		v  = "#181a23"
+        n       = "#04a5e5",
+		i       = "#dd7878",
+		ic      = "#dd7878",
+		c       = "#fe640b",
+		v       = "#8839ef",
+		V       = "#7287fd",
+		['']  = "#7287fd",
     },
-    mode_icons = {
-        n = "󰫻 ",
-        i = "󱂈 ",
-        ic = ' ',
-        c = "󰫰 ",
-        v = "󱂌 ",   -- etc..
+    mode_icons  = {
+        n       = '󱇪 N',-- "󰫻 ",
+        i       = '󱇪 I',-- "󱂈 ",
+        ic      = '󱇪 Ic',-- ' ',
+        c       = '󱇪 C',-- "󰫰 ",
+        v       = '󱇪 V',-- "󱂌 ",
+        V       = '󱇪 V LINE',-- "󱂌 ",
+        ['']  = '󱇪 V BLOCK',-- "󱂌 ",
     },
     sections = {
         left = {
-            ' ', 'right_sep_double', '-mode', 'left_sep_double', ' ',
-			'right_sep', '-file_name', 'left_sep', ' ',
-			'right_sep_double', '-branch', 'left_sep_double', ' ',
+            ' ', 'right_sep', 'mode', 'left_sep', '  ',
+			{ 'StlFolders', '󰉋 ' }, { 'StlFolders', 'cwd' },
+			{ 'StlFolders', 'file_name' },
+            { 'StlGit', 'branch' },
         },
-        mid  = { 'lsp' },
+        mid  = { { 'StlLspName', 'lsp_name' }, { 'StlLsp', 'lsp' }, },
         right = {
-            'right_sep', '-cool_symbol', 'left_sep', ' ',
-            ' ', 'right_sep_double', '-mode', 'left_sep_double', ' ',
-            'right_sep_double', '-line_column', 'left_sep_double', ' ',
+            { 'StlLine', 'file_size' },
+            { 'StlLine', 'line_column' },
+            { 'StlCoolSymbol', 'cool_symbol' }, ' ',
+
         },
     },
     inactive_sections = {
@@ -67,4 +73,16 @@ require('staline').setup {
         Warn=" ",
         Hint="",
     },
+    file_icons = {
+        conf=' ', zig=' ',
+    }
 }
+
+vim.cmd('highlight StlRed guifg=#d20f39 guibg=none')
+
+vim.cmd('highlight StlFolders guifg=#f0c6c6 guibg=none')
+vim.cmd('highlight StlGit guifg=#fab387 guibg=none')
+vim.cmd('highlight StlLspName guifg=#1e66f5 guibg=none')
+vim.cmd('highlight StlLsp guifg=#c6d0f5 guibg=none')
+vim.cmd('highlight StlLine guifg=#cba6f7 guibg=none')
+vim.cmd('highlight StlCoolSymbol guifg=#8839ef guibg=none')
