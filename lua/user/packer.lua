@@ -2,7 +2,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
+	-- Packer can manaage itself
 	use 'wbthomason/packer.nvim'
 
     -- feedback
