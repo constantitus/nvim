@@ -20,19 +20,6 @@ return require('packer').startup(function(use)
             }
         end
     }
-    -- use('github/copilot.vim')
-    use('rcarriga/nvim-notify')
-
-    -- navigation
-    use('nvim-tree/nvim-tree.lua')
-    use('mbbill/undotree')
-    use('tpope/vim-fugitive')
-    use('theprimeagen/harpoon')
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -54,6 +41,19 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
         }
+    }
+    use("nathom/filetype.nvim")
+    -- use('rcarriga/nvim-notify')
+
+    -- navigation
+    use('nvim-tree/nvim-tree.lua')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
+    use('theprimeagen/harpoon')
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
     }
 
     -- appearance

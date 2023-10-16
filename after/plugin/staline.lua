@@ -74,7 +74,7 @@ require('staline').setup {
         Hint=" ",
     },
     file_icons = {
-        conf=' ', zig=' ',
+        conf=' ', zig=' ', sp='S',
     }
 }
 
