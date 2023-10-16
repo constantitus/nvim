@@ -78,6 +78,7 @@ return require('packer').startup(function(use)
     }--]]
     use('tamton-aquib/staline.nvim')
     use('nvim-tree/nvim-web-devicons')
+    use {'stevearc/dressing.nvim'}
 
     -- utility
     use('folke/zen-mode.nvim')
