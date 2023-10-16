@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
-    use("nathom/filetype.nvim")
     -- use('rcarriga/nvim-notify')
 
     -- navigation
