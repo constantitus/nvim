@@ -78,6 +78,7 @@ local plugins = {
         'catppuccin/nvim',
         as = 'catpuccin',
         config = function()
+            require("gitsigns").setup()
             vim.cmd('colorscheme catppuccin')
         end,
         lazy = false,
