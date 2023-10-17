@@ -25,6 +25,10 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set({ "n", "v" }, "<leader>x", [["+x]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Case-insensitive search
+vim.keymap.set("n", "<C-/>", "/\\c")
+vim.keymap.set("n", "<C-?>", "?\\c")
+
 -- centers cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
