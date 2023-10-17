@@ -1,4 +1,3 @@
--- Dashboard
 local dashboard = require("alpha.themes.dashboard")
 
 dashboard.section.header.val = {
@@ -37,13 +36,14 @@ dashboard.section.header.val = {
 [[            ;#####;;'..;;:::#########::%%#########:"'                     ]],
 [[                           ~~~~``````''''~~~                              ]]
 }
-
+--[[
 local function footer()
   local total_plugins = #vim.tbl_keys(packer_plugins)
   return "Loaded "
     .. total_plugins
     .. " plugins"
 end
+--]]
 
 local function button(sc, txt, keybind, keybind_opts)
     local opts = {
@@ -73,7 +73,7 @@ dashboard.section.header.opts.hl = "Keyword"
 dashboard.section.buttons.val = {
     button("e", "", "<cmd>ene <CR>"),
 }
-dashboard.section.footer.val = footer()
+dashboard.section.footer.val = {}
 dashboard.section.footer.opts.hl = "Constant"
 
 dashboard.opts.layout = {

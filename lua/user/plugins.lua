@@ -1,15 +1,22 @@
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-	-- Packer can manaage itself
-	use 'wbthomason/packer.nvim'
-
+local plugins = {
     -- feedback
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use('nvim-treesitter/nvim-treesitter-context')
-	use('nvim-treesitter/playground')
-    use {
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter-context',
+    'nvim-treesitter/playground',
+    {
         "folke/trouble.nvim",
         config = function()
             require("trouble").setup {
@@ -19,11 +26,11 @@ return require('packer').startup(function(use)
                 -- refer to the configuration section below
             }
         end
-    }
-    use {
+    },
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = {
+        dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},
             {'williamboman/mason.nvim'},
@@ -41,62 +48,65 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
         }
-    }
+    },
     -- use('rcarriga/nvim-notify')
 
     -- navigation
-    use('nvim-tree/nvim-tree.lua')
-    use('mbbill/undotree')
-    use('tpope/vim-fugitive')
-    use('theprimeagen/harpoon')
-    use {
+    'nvim-tree/nvim-tree.lua',
+    'mbbill/undotree',
+    'tpope/vim-fugitive',
+    'theprimeagen/harpoon',
+    {
         'nvim-telescope/telescope.nvim', tag = '0.1.3',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+        dependencies = { {'nvim-lua/plenary.nvim'} }
+    },
 
     -- appearance
-    use {
+    {
         'goolord/alpha-nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' },
-    }
-    use('norcalli/nvim-colorizer.lua')
-    use('lukas-reineke/indent-blankline.nvim')
-    use('hiphish/rainbow-delimiters.nvim')
-    use('lewis6991/gitsigns.nvim')
-    use {
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    'norcalli/nvim-colorizer.lua',
+    'lukas-reineke/indent-blankline.nvim',
+    'hiphish/rainbow-delimiters.nvim',
+    'lewis6991/gitsigns.nvim',
+    {
         'catppuccin/nvim',
         as = 'catpuccin',
         config = function()
             vim.cmd('colorscheme catppuccin')
         end
-    }
-    use('tamton-aquib/staline.nvim')
-    use('nvim-tree/nvim-web-devicons')
-    use('stevearc/dressing.nvim')
-    use('xiyaowong/nvim-cursorword')
+    },
+    'tamton-aquib/staline.nvim',
+    'nvim-tree/nvim-web-devicons',
+    'stevearc/dressing.nvim',
+    'xiyaowong/nvim-cursorword',
 
     -- utility
-    use('folke/zen-mode.nvim')
-    use {
+    'folke/zen-mode.nvim',
+    {
         "ziontee113/color-picker.nvim",
         config = function()
             require("color-picker")
         end
-    }
-    use {
+    },
+    {
         'smoka7/hop.nvim',
-        tag = '*', -- optional but strongly recommended
+        version = "*",
         config = function()
             -- you can configure Hop the way you like here; see :h hop-config
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
-    }
-    use({
+    },
+    {
         "stevearc/aerial.nvim",
         config = function()
             require("aerial").setup()
         end,
-    })
+    },
+}
 
-end)
+local opts = {}
+
+require("lazy").setup(plugins, opts)

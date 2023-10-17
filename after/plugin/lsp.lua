@@ -13,7 +13,7 @@ lsp.ensure_installed({
 lsp.nvim_workspace()
 
 
-local cmp = require('cmp')
+local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mapping = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -43,9 +43,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("n", "<leader>vh", function() vim.lsp.buf.signature_help() end, opts)
     vim.keymap.set("n", "<leader><C-f>", vim.lsp.buf.format)
+    vim.keymap.set("n", "<leader>l", function() vim.diagnostic.open_float() end)
 end)
-
-vim.keymap.set("n", "<leader>l", function() vim.diagnostic.open_float() end)
 
 lsp.setup()
 

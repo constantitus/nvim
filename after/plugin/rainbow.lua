@@ -1,5 +1,4 @@
-
-local rainbow_delimiters = require 'rainbow-delimiters'
+local rainbow_delimiters = require('rainbow-delimiters')
 
 vim.g.rainbow_delimiters = {
     strategy = {
@@ -20,4 +19,3 @@ vim.g.rainbow_delimiters = {
         'RainbowDelimiterCyan',
     },
 }
-
