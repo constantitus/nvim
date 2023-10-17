@@ -71,13 +71,10 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme catppuccin')
         end
     }
-    --[[ use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }--]]
     use('tamton-aquib/staline.nvim')
     use('nvim-tree/nvim-web-devicons')
-    use {'stevearc/dressing.nvim'}
+    use('stevearc/dressing.nvim')
+    use('xiyaowong/nvim-cursorword')
 
     -- utility
     use('folke/zen-mode.nvim')
