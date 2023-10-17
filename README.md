@@ -11,12 +11,8 @@ My neovim config. Mostly stuff I've learned/stolen from other nvim users.
 I'm doing my best to learn vim and use it as my main text editor and IDE.
 
 ## Installing:
-Install wbthomason/packer.nvim
-```shell
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-Or just get the AUR package, whatever works..
+This config is now using [lazy.nvim](https://github.com/folke/lazy.nvim), which can install itself.\
+If you have previously used packer.nvim, make sure to delete `~/.local/share/nvim/site/pack/packer`.
 
 Clone this repository into your $HOME.config folder and run `nvim +PackerSync`.\
 Then run `:checkhealth` in nvim and install what you need with your package manager.

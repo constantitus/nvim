@@ -63,20 +63,21 @@ local plugins = {
     },
 
     -- appearance
-    {
-        'goolord/alpha-nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-    },
+    require("user.alpha"),
     'norcalli/nvim-colorizer.lua',
     'lukas-reineke/indent-blankline.nvim',
-    'hiphish/rainbow-delimiters.nvim',
+    {
+        'hiphish/rainbow-delimiters.nvim',
+        lazy = false,
+    },
     'lewis6991/gitsigns.nvim',
     {
         'catppuccin/nvim',
         as = 'catpuccin',
         config = function()
             vim.cmd('colorscheme catppuccin')
-        end
+        end,
+        lazy = false,
     },
     'tamton-aquib/staline.nvim',
     'nvim-tree/nvim-web-devicons',
@@ -89,24 +90,28 @@ local plugins = {
         "ziontee113/color-picker.nvim",
         config = function()
             require("color-picker")
-        end
+        end,
+        lazy = true,
     },
     {
         'smoka7/hop.nvim',
-        version = "*",
         config = function()
             -- you can configure Hop the way you like here; see :h hop-config
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        end
+            require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+        end,
+        lazy = true,
     },
     {
         "stevearc/aerial.nvim",
         config = function()
             require("aerial").setup()
         end,
+        lazy = true,
     },
 }
 
-local opts = {}
+local opts = {
+    defaults = { lazy = true }
+}
 
 require("lazy").setup(plugins, opts)
