@@ -15,7 +15,7 @@ local plugins = {
     -- feedback
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/nvim-treesitter-context',
-    'nvim-treesitter/playground',
+    { 'nvim-treesitter/playground', lazy = false, },
     {
         "folke/trouble.nvim",
         config = function()
@@ -25,7 +25,8 @@ local plugins = {
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
             }
-        end
+        end,
+        lazy = false,
     },
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -53,12 +54,12 @@ local plugins = {
 
     -- navigation
     'nvim-tree/nvim-tree.lua',
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
+    { 'mbbill/undotree', lazy = false, },
+    { 'tpope/vim-fugitive', lazy = false; },
     'theprimeagen/harpoon',
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.3',
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
 
@@ -84,7 +85,7 @@ local plugins = {
     'tamton-aquib/staline.nvim',
     'nvim-tree/nvim-web-devicons',
     'stevearc/dressing.nvim',
-    'xiyaowong/nvim-cursorword',
+    { 'xiyaowong/nvim-cursorword', lazy = false, },
 
     -- utility
     'folke/zen-mode.nvim',
