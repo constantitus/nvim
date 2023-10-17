@@ -68,6 +68,8 @@ local plugins = {
     'lukas-reineke/indent-blankline.nvim',
     {
         'hiphish/rainbow-delimiters.nvim',
+        main = "ibl",
+        opts = {},
         lazy = false,
     },
     'lewis6991/gitsigns.nvim',
