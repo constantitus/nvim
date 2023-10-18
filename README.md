@@ -7,7 +7,7 @@
 ![screenshot](screenshots/1.png)
 
 ## About
-My neovim config. Mostly stuff I've learned/stolen from other nvim users.
+My neovim config. Mostly stuff I've learned/stolen from other people's configs.
 I'm doing my best to learn vim and use it as my main text editor and IDE.
 
 ## Installing:
@@ -18,7 +18,7 @@ Then open up nvim, run `:checkhealth` and install what you need with your packag
 
 Configure to your liking
 
-On top of my vim config, I've set my `CAPS LOCK` key to be mapped to `Esc` and my key repeat delay lower from my wayland compositor's config file.
+On top of my vim config, I've mapped the `CAPS LOCK` key to `Esc` and lowered the repeat delay from my wayland compositor's config file.
 >hyprland.conf
 ```
 input {
