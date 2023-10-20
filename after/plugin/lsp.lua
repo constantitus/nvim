@@ -25,7 +25,7 @@ lsp.setup_nvim_cmp({
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    -- goto
+    -- goto (also sets mark B to go back)
     vim.keymap.set("n", "gd", function() -- definition
         vim.api.nvim_feedkeys("mB", "n", false)
         vim.lsp.buf.definition()
@@ -38,9 +38,6 @@ lsp.on_attach(function(client, bufnr)
         vim.api.nvim_feedkeys("mB", "n", false)
         vim.lsp.buf.implementation()
     end, opts)
-    -- go back
-    vim.keymap.set("n", "gb", function() vim.api.nvim_feedkeys("n", "`B", false) end)
-
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
