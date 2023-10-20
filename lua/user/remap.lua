@@ -146,4 +146,4 @@ vim.keymap.set("n", "<leader>c", "<cmd>PickColor<cr>", { noremap = true, silent 
 
 vim.keymap.set('n', '<leader>Cw', '<cmd>CursorWordToggle<CR>')
 
-
+vim.keymap.set("n", "<leader>A", "<cmd>AerialToggle!<CR>")

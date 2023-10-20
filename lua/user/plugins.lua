@@ -13,9 +13,17 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
     -- feedback
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-treesitter/nvim-treesitter-context',
-    { 'nvim-treesitter/playground', lazy = false, },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = function()
+            pcall(require('nvim-treesitter.install').update { with_sync = true })
+        end,
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            'nvim-treesitter/nvim-treesitter-context',
+            'nvim-treesitter/playground'
+        },
+    },
     {
         "folke/trouble.nvim",
         config = function()
