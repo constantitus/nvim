@@ -1,6 +1,6 @@
 return {
     "goolord/alpha-nvim",
-    opts = function(_, opts)
+    opts = function(_, _)
         local dashboard = require("alpha.themes.dashboard")
         dashboard.section.header.val = {
             [[                                                                          ]],
