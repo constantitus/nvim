@@ -50,7 +50,8 @@ vim.keymap.set("n", "[l", "<cmd>lprev<CR>zz")
 
 -- commands
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>wr", "<cmd>set wrap!<cr>")
+vim.keymap.set("n", "<leader>wr", "<cmd>set wrap!<CR>")
+vim.keymap.set("n", "<leader>n", "<cmd>set hlsearch!<CR>")
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

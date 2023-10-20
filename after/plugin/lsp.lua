@@ -25,10 +25,22 @@ lsp.setup_nvim_cmp({
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    -- get definition
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-    vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+    -- goto
+    vim.keymap.set("n", "gd", function() -- definition
+        vim.api.nvim_feedkeys("mB", "n", false)
+        vim.lsp.buf.definition()
+    end, opts )
+    vim.keymap.set("n", "gD", function() -- declaration
+        vim.api.nvim_feedkeys("mB", "n", false)
+        vim.lsp.buf.declaration()
+    end, opts)
+    vim.keymap.set("n", "gi", function() -- implementation
+        vim.api.nvim_feedkeys("mB", "n", false)
+        vim.lsp.buf.implementation()
+    end, opts)
+    -- go back
+    vim.keymap.set("n", "gb", function() vim.api.nvim_feedkeys("n", "`B", false) end)
+
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
