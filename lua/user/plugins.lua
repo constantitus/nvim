@@ -21,9 +21,10 @@ local plugins = {
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
             'nvim-treesitter/nvim-treesitter-context',
-            'nvim-treesitter/playground'
+            'nvim-treesitter/playground',
         },
     },
+    { 'numToStr/Comment.nvim', lazy = false, },
     {
         "folke/trouble.nvim",
         config = function()
@@ -58,7 +59,7 @@ local plugins = {
     -- navigation
     'nvim-tree/nvim-tree.lua',
     { 'mbbill/undotree', lazy = false, },
-    { 'tpope/vim-fugitive', lazy = false; },
+    { 'tpope/vim-fugitive', lazy = false, },
     'theprimeagen/harpoon',
     {
         'nvim-telescope/telescope.nvim',
