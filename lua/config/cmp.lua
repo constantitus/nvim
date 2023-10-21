@@ -1,6 +1,5 @@
 return function()
     local lsp = require("lsp-zero")
-    lsp.extend_cmp()
 
     local cmp = require("cmp")
     -- local cmp_action = lsp.cmp_action()
@@ -41,4 +40,5 @@ return function()
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
     })
+    lsp.extend_cmp()
 end
