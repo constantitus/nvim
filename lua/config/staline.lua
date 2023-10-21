@@ -78,11 +78,4 @@ require("staline").setup {
     }
 }
 
-vim.cmd('highlight StlRed guifg=#d20f39 guibg=none')
-
-vim.cmd('highlight StlFolders guifg=#f0c6c6 guibg=none')
-vim.cmd('highlight StlGit guifg=#fab387 guibg=none')
-vim.cmd('highlight StlLspName guifg=#1e66f5 guibg=none')
-vim.cmd('highlight StlLsp guifg=#c6d0f5 guibg=none')
-vim.cmd('highlight StlLine guifg=#cba6f7 guibg=none')
-vim.cmd('highlight StlCoolSymbol guifg=#8839ef guibg=none')
+-- the colors are in user.set
