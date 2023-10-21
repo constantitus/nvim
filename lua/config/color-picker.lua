@@ -16,5 +16,3 @@ require("color-picker").setup({ -- for changing icons & mappings
 })
 
 vim.cmd([[hi FloatBorder guibg=NONE]]) -- if you don't want weird border background colors around the popup.
-
-require 'colorizer'.setup()

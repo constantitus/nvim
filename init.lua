@@ -20,4 +20,6 @@ vim.keymap.set({'n', 'i', 'x'}, '<S-Right>', '<Nop>')
 vim.keymap.set({'n', 'i', 'x'}, '<S-Up>', '<Nop>')
 vim.keymap.set({'n', 'i', 'x'}, '<S-DOwn>', '<Nop>')
 
+vim.opt.termguicolors = true
+
 require("user")

@@ -92,7 +92,7 @@ vim.keymap.set("n", "<leader>er", "<cmd>TroubleToggle document_diagnostics<cr>",
 )
 
 -- zenmode
-vim.keymap.set("n", "<leader>zz", "<cmd>lua ZenToggle()<CR><cmd>IBLToggle<CR>" )
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>" )
 
 
 -- hop
@@ -121,7 +121,7 @@ vim.keymap.set( {'n', 'v'}, '<leader><leader>', function()
 end, {remap=true})
 
 -- git
-vim.keymap.set("n", "<leader>gs", "<cmd>tabnew<CR><cmd>0G<CR>")
+vim.keymap.set("n", "<leader>gs", "<cmd>tab G<CR>")
 vim.keymap.set("n", "<leader>ga", "<cmd>G add %<CR>")
 vim.keymap.set("n", "<leader>gA", "<cmd>G add -A<CR>")
 vim.keymap.set("n", "<leader>gc", ":G commit -m ''<left>")

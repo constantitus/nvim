@@ -23,63 +23,119 @@ local plugins = {
             'nvim-treesitter/nvim-treesitter-context',
             'nvim-treesitter/playground',
         },
+        config = function() require("config.treesitter") end,
+        lazy = false,
     },
-    { 'numToStr/Comment.nvim', lazy = false, },
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            mappings= {
+                extra = false,
+            },
+        },
+        lazy = false,
+    },
     {
         "folke/trouble.nvim",
-        config = function()
-            require("trouble").setup()
-        end,
+        config = function() require("trouble").setup() end,
         lazy = false,
     },
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v3.x',
+        config = false,
+        init = function()
+            -- Disable automatic setup, we are doing it manually
+            vim.g.lsp_zero_extend_cmp = 0
+            vim.g.lsp_zero_extend_lspconfig = 0
+        end,
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        event = 'InsertEnter',
         dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
             {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
             {'hrsh7th/cmp-nvim-lua'},
-
             -- Snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
         },
-        lazy = false,
+        config = require("config.cmp"),
     },
-    -- use('rcarriga/nvim-notify')
+    {
+        'neovim/nvim-lspconfig',
+        cmd = { 'LspInfo', 'LspInstall', 'LspStart', },
+        event = {'BufReadPre', 'BufNewFile' },
+        dependencies = {
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'williamboman/mason-lspconfig.nvim'},
+        },
+        config = require("config.lsp"),
+    },
+    {
+        'williamboman/mason.nvim',
+        lazy = false,
+        config = true,
+    },
+    -- 'rcarriga/nvim-notify' -- unused because I'm too lazy to set it up
 
     -- navigation
-    'nvim-tree/nvim-tree.lua',
-    'theprimeagen/harpoon',
+    {
+        'nvim-tree/nvim-tree.lua',
+        cmd = 'NvimTreeToggle',
+        event = {'BufReadPre', 'BufNewFile' },
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function() require("config.nvim-tree") end,
+        lazy = true,
+    },
+    { 'theprimeagen/harpoon', lazy = true, },
     { 'mbbill/undotree', lazy = false, },
-    { 'tpope/vim-fugitive', lazy = false, },
+    {
+        'tpope/vim-fugitive',
+        cmd = { 'G', 'Git', 'Gwrite', 'Gread', 'Gdiff' },
+        lazy = true,
+    },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
-        dependencies = { {'nvim-lua/plenary.nvim'} }
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            "debugloop/telescope-undo.nvim",
+        },
+        config = function() require("config.telescope") end,
+        lazy = true,
     },
 
     -- appearance
-    require("user.alpha"),
-    'norcalli/nvim-colorizer.lua',
-    'lewis6991/gitsigns.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'stevearc/dressing.nvim',
-    'lukas-reineke/indent-blankline.nvim',
+    require("config.alpha"),
     {
-        'hiphish/rainbow-delimiters.nvim',
-        main = "ibl",
-        opts = {},
-        lazy = false,
+        'norcalli/nvim-colorizer.lua',
+        event = {'BufReadPre', 'BufNewFile' },
+        config = function() require("colorizer").setup() end,
+        lazy = true,
+    },
+    { 'lewis6991/gitsigns.nvim', },
+    {
+        'stevearc/dressing.nvim',
+        event = {'BufReadPre', 'BufNewFile' },
+        config = function() require("config.dressing") end,
+        lazy = true,
+    },
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        dependencies = {
+            {
+                'hiphish/rainbow-delimiters.nvim',
+                main = "ibl",
+            },
+        },
+        event = {'BufReadPre', 'BufNewFile' },
+        config = function() require("config.ibl") end,
+        lazy = true,
     },
     {
         'catppuccin/nvim',
@@ -90,31 +146,37 @@ local plugins = {
         end,
         lazy = false,
     },
-    { 'tamton-aquib/staline.nvim', lazy = false, },
+    {
+        'tamton-aquib/staline.nvim',
+        config = function() require("config.staline") end,
+        lazy = false,
+    },
     { 'xiyaowong/nvim-cursorword', lazy = false, },
 
     -- utility
-    'folke/zen-mode.nvim',
+    {
+        'folke/zen-mode.nvim',
+        cmd = 'ZenMode',
+        config = function()
+            require("config.zenmode")
+        end,
+        lazy = true,
+    },
     {
         "ziontee113/color-picker.nvim",
-        config = function()
-            require("color-picker")
-        end,
+        cmd = 'PickColor',
+        config = function() require("config.color-picker") end,
         lazy = true,
     },
     {
         'smoka7/hop.nvim',
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
-        end,
+        config = function() require("hop").setup{ keys = 'etovxqpdygfblzhckisuran' } end,
         lazy = true,
     },
     {
         "stevearc/aerial.nvim",
-        config = function()
-            require("aerial").setup()
-        end,
+        event = {'BufReadPre', 'BufNewFile' },
+        config = function() require("config.aerial") end,
         lazy = true,
     },
 }
