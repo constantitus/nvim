@@ -1,6 +1,6 @@
 return function()
     local lsp = require("lsp-zero")
-    --lsp.extend_lspconfig()
+    lsp.extend_lspconfig()
 
     lsp.on_attach(function(client, bufnr)
         local opts = { buffer = bufnr, remap = false }

@@ -42,7 +42,7 @@ local plugins = {
     },
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
+        branch = 'v2.x',
         config = false,
         init = function()
             -- Disable automatic setup, we are doing it manually

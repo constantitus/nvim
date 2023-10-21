@@ -1,10 +1,12 @@
 return function()
     local lsp = require("lsp-zero")
+    lsp.extend_cmp()
 
     local cmp = require("cmp")
-    -- local cmp_action = lsp.cmp_action()
+    local cmp_action = lsp.cmp_action()
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_snipmate").lazy_load()
+    -- require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
         snipet = {
