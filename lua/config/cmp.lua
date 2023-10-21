@@ -33,7 +33,7 @@ return function()
         mapping = cmp.mapping.preset.insert({
             ['<C-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-            ['<C-CR>'] = cmp.mapping.confirm({ select = true }),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
             ["<C-Space"] = cmp.mapping.complete(),
         }),
         lua_ls = function()
