@@ -52,7 +52,7 @@ local plugins = {
     },
     {
         'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        event = { 'InsertEnter', 'BufReadPre', 'BufNewFile' },
         dependencies = {
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
@@ -63,6 +63,7 @@ local plugins = {
             {'rafamadriz/friendly-snippets'},
         },
         config = require("config.cmp"),
+        lazy = true;
     },
     {
         'neovim/nvim-lspconfig',
