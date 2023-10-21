@@ -49,10 +49,16 @@ local plugins = {
             vim.g.lsp_zero_extend_cmp = 0
             vim.g.lsp_zero_extend_lspconfig = 0
         end,
+        lazy = true,
+    },
+    {
+        'williamboman/mason.nvim',
+        config = true,
+        lazy = false,
     },
     {
         'hrsh7th/nvim-cmp',
-        event = { 'InsertEnter', 'BufReadPre', 'BufNewFile' },
+        event = { 'InsertEnter' },
         dependencies = {
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
@@ -74,11 +80,7 @@ local plugins = {
             {'williamboman/mason-lspconfig.nvim'},
         },
         config = require("config.lsp"),
-    },
-    {
-        'williamboman/mason.nvim',
-        lazy = false,
-        config = true,
+        lazy = true,
     },
     -- 'rcarriga/nvim-notify' -- unused because I'm too lazy to set it up
 
