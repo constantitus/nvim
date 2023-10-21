@@ -1,8 +1,6 @@
 return function()
     local lsp = require("lsp-zero")
-    lsp.extend_lspconfig()
-
-    lsp.preset("recommended")
+    --lsp.extend_lspconfig()
 
     lsp.on_attach(function(client, bufnr)
         local opts = { buffer = bufnr, remap = false }
@@ -50,6 +48,7 @@ return function()
         }
     )
 
+    require("mason").setup()
     require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls" },
         handlers = {
