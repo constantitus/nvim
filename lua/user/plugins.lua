@@ -52,15 +52,16 @@ local plugins = {
             -- Snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
-        }
+        },
+        lazy = false,
     },
     -- use('rcarriga/nvim-notify')
 
     -- navigation
     'nvim-tree/nvim-tree.lua',
+    'theprimeagen/harpoon',
     { 'mbbill/undotree', lazy = false, },
     { 'tpope/vim-fugitive', lazy = false, },
-    'theprimeagen/harpoon',
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
@@ -70,6 +71,9 @@ local plugins = {
     -- appearance
     require("user.alpha"),
     'norcalli/nvim-colorizer.lua',
+    'lewis6991/gitsigns.nvim',
+    'nvim-tree/nvim-web-devicons',
+    'stevearc/dressing.nvim',
     'lukas-reineke/indent-blankline.nvim',
     {
         'hiphish/rainbow-delimiters.nvim',
@@ -77,7 +81,6 @@ local plugins = {
         opts = {},
         lazy = false,
     },
-    'lewis6991/gitsigns.nvim',
     {
         'catppuccin/nvim',
         as = 'catpuccin',
@@ -87,9 +90,7 @@ local plugins = {
         end,
         lazy = false,
     },
-    'tamton-aquib/staline.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'stevearc/dressing.nvim',
+    { 'tamton-aquib/staline.nvim', lazy = false, },
     { 'xiyaowong/nvim-cursorword', lazy = false, },
 
     -- utility

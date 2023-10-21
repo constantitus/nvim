@@ -23,7 +23,7 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mapping
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_--[[ client ]], bufnr)
     local opts = { buffer = bufnr, remap = false }
     -- goto (also sets mark B to go back)
     vim.keymap.set("n", "gd", function() -- definition
