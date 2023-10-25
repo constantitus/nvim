@@ -59,7 +59,7 @@ vim.keymap.set("n", "<leader>wr", "<cmd>set wrap!<CR>")
 vim.keymap.set("n", "<leader>n", "<cmd>set hlsearch!<CR>")
 
 -- undotree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>u", "<Cmd>UndotreeToggle<CR>")
 
 -- harpoon
 local mark = require("harpoon.mark")
@@ -81,10 +81,10 @@ vim.keymap.set("n", "<leader>9", function() ui.nav_file(9) end)
 vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
 
 -- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
+vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+vim.keymap.set("n", "<leader>ps", function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
@@ -101,23 +101,23 @@ vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>" )
 
 
 -- hop
-local hop = require('hop')
-local directions = require('hop.hint').HintDirection
-vim.keymap.set( {'n', 'v'}, '<leader>f', function()
+local hop = require("hop")
+local directions = require("hop.hint").HintDirection
+vim.keymap.set( {"n", "v"}, "<leader>f", function()
     hop.hint_char1({
         direction = directions.AFTER_CURSOR,
         current_line_only = false,
         hint_offset = 0
     })
 end, {remap=true})
-vim.keymap.set( {'n', 'v'}, '<leader>F', function()
+vim.keymap.set( {"n", "v"}, "<leader>F", function()
     hop.hint_char1({
         direction = directions.BEFORE_CURSOR,
         current_line_only = false,
         hint_offset = 0
     })
 end, {remap=true})
-vim.keymap.set( {'n', 'v'}, '<leader><leader>', function()
+vim.keymap.set( {"n", "v"}, "<leader><leader>", function()
     hop.hint_char1({
         direction = { directions.BEFORE_CURSOR, directions.AFTER_CURSOR},
         current_line_only = false,
@@ -150,6 +150,9 @@ vim.keymap.set("n", "<leader>c", "<cmd>PickColor<cr>", { noremap = true, silent 
 -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandRGB<cr>", opts)
 -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandHSL<cr>", opts)
 
-vim.keymap.set('n', '<leader>Cw', '<cmd>CursorWordToggle<CR>')
+vim.keymap.set("n", "<leader>Cw", "<cmd>CursorWordToggle<CR>")
 
 vim.keymap.set("n", "<leader>A", "<cmd>AerialToggle!<CR>")
+
+vim.keymap.set("n", "<C-\\>", "<Cmd>ToggleTerm<CR>")
+vim.keymap.set("v", "<C-\\>", "<Cmd>ToggleTermSendVisualSelection<CR>")

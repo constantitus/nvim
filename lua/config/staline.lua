@@ -29,6 +29,7 @@ require("staline").setup {
 		v       = "#8839ef",
 		V       = "#7287fd",
 		['']  = "#7287fd",
+		t       = "#99e699",
     },
     mode_icons  = {
         n       = '󱇪 N',-- "󰫻 ",
@@ -38,6 +39,7 @@ require("staline").setup {
         v       = '󱇪 V',-- "󱂌 ",
         V       = '󱇪 V LINE',-- "󱂌 ",
         ['']  = '󱇪 V BLOCK',-- "󱂌 ",
+        t       = '󱇪 TERM',-- "󱂌 ",
     },
     sections = {
         left = {
