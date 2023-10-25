@@ -9,7 +9,7 @@ vim.keymap.set({"c", "t"}, "<C-l>", "<right>")
 -- word into substitute
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- selection into substitute
-vim.keymap.set("v", "<leader>s", [["qy:%s/<C-r>q//g<left><left>]])
+vim.keymap.set("v", "<leader>s", [["qy:%s/<C-r>q//gI<left><left><left>]])
 
 -- moving selected items with J K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
