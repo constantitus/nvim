@@ -109,13 +109,13 @@ local plugins = {
     },
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.3",
+        tag = "0.1.4",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "debugloop/telescope-undo.nvim",
         },
-        config = function() require("config.telescope") end,
-        lazy = true,
+        config = function() require("telescope").load_extension("undo") end,
+        lazy = false,
     },
 
     -- appearance
