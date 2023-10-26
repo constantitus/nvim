@@ -30,8 +30,8 @@ vim.keymap.set({ "n", "v" }, "<leader>x", [["+x]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Case-insensitive search
-vim.keymap.set("n", "<C-/>", "/\\c")
-vim.keymap.set("n", "<C-?>", "?\\c")
+vim.keymap.set("n", "<C-/>", [[/\c]])
+vim.keymap.set("n", "<C-?>", [[?\c]])
 
 -- centers cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -47,9 +47,13 @@ vim.keymap.set("n", "<C-+>", "<cmd>resize +3<CR>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>") -- fuck that
 
--- cnext/cprev
-vim.keymap.set("n", "]c", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "[c", "<cmd>cprev<CR>zz")
+-- next/prev
+vim.keymap.set("n", "]a", "<cmd>next<CR>zz")
+vim.keymap.set("n", "[a", "<cmd>prev<CR>zz")
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "]b", "<cmd>bnext<CR>zz")
+vim.keymap.set("n", "[b", "<cmd>bprev<CR>zz")
 vim.keymap.set("n", "]l", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "[l", "<cmd>lprev<CR>zz")
 
