@@ -66,7 +66,7 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>a", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
 vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
 vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
@@ -89,10 +89,10 @@ vim.keymap.set("n", "<leader>ps", function()
 end)
 
 -- trouble
-vim.keymap.set("n", "<leader>qf", "<cmd>TroubleToggle quickfix<cr>",
+vim.keymap.set("n", "<leader>Eq", "<cmd>TroubleToggle quickfix<cr>",
     {silent = true, noremap = true}
 )
-vim.keymap.set("n", "<leader>er", "<cmd>TroubleToggle document_diagnostics<cr>",
+vim.keymap.set("n", "<leader>Er", "<cmd>TroubleToggle document_diagnostics<cr>",
     {silent = true, noremap = true}
 )
 
