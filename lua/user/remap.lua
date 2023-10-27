@@ -146,7 +146,10 @@ vim.keymap.set("n", "<leader>gd", "<cmd>Gdiff<CR>")
 vim.keymap.set("n", "<leader>g-", "<cmd>silent G stash<CR><cmd>e<CR>")
 vim.keymap.set("n", "<leader>g=", "<cmd>silent G stash pop<CR><cmd>e<CR>")
 
--- Lazy
+-- notify
+vim.keymap.set("n", "<leader>N", "<cmd>Telescope notify<CR>")
+
+-- lazy
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>")
 
 -- other plugins

@@ -62,7 +62,6 @@ local plugins = {
     },
     {
         "hrsh7th/nvim-cmp",
-        event = { "InsertEnter" },
         dependencies = {
             {"hrsh7th/cmp-buffer"},
             {"hrsh7th/cmp-path"},
@@ -73,17 +72,18 @@ local plugins = {
             {"rafamadriz/friendly-snippets"},
         },
         config = require("config.cmp"),
+        event = { "InsertEnter" },
         lazy = true;
     },
     {
         "neovim/nvim-lspconfig",
         cmd = { "LspInfo", "LspInstall", "LspStart", },
-        event = {"BufReadPre", "BufNewFile" },
         dependencies = {
             {"hrsh7th/cmp-nvim-lsp"},
             {"williamboman/mason-lspconfig.nvim"},
         },
         config = require("config.lsp"),
+        event = {"BufReadPre", "BufNewFile" },
         lazy = true,
     },
 
@@ -91,11 +91,11 @@ local plugins = {
     {
         "nvim-tree/nvim-tree.lua",
         cmd = "NvimTreeToggle",
-        event = {"BufReadPre", "BufNewFile" },
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
         config = function() require("config.nvim-tree") end,
+        event = {"BufReadPre", "BufNewFile" },
         lazy = true,
     },
     { "theprimeagen/harpoon", lazy = true, },
@@ -107,6 +107,7 @@ local plugins = {
     {
         "tpope/vim-fugitive",
         cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff" },
+        -- TODO: command Gdiff not found after loading vim-fugitive
         lazy = true,
     },
     {
@@ -125,8 +126,8 @@ local plugins = {
     require("config.alpha"),
     {
         "norcalli/nvim-colorizer.lua",
-        event = {"BufReadPre", "BufNewFile" },
         config = function() require("colorizer").setup() end,
+        event = {"BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -136,8 +137,8 @@ local plugins = {
     },
     {
         "stevearc/dressing.nvim",
-        event = {"BufReadPre", "BufNewFile" },
         config = function() require("config.dressing") end,
+        event = {"BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -148,8 +149,8 @@ local plugins = {
                 main = "ibl",
             },
         },
-        event = {"BufReadPre", "BufNewFile" },
         config = function() require("config.ibl") end,
+        event = {"BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -173,9 +174,7 @@ local plugins = {
     },
     {
         "folke/noice.nvim",
-        event = "VeryLazy",
         opts = {
-            -- add any options here
         },
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -183,6 +182,7 @@ local plugins = {
             "rcarriga/nvim-notify",
         },
         config = function() require("config.noice") end,
+        event = "VeryLazy",
         lazy = true,
     },
 
@@ -206,8 +206,8 @@ local plugins = {
     },
     {
         "stevearc/aerial.nvim",
-        event = {"BufReadPre", "BufNewFile" },
         config = function() require("config.aerial") end,
+        event = {"BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
