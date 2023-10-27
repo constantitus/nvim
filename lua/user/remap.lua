@@ -138,7 +138,7 @@ vim.keymap.set("n", "<leader>gA", "<cmd>G add -A<CR>")
 vim.keymap.set("n", "<leader>gc", ":G commit -m ''<left>")
 vim.keymap.set("n", "<leader>gC", ":G checkout")
 vim.keymap.set("n", "<leader>gS", ":G switch ''<left>")
-vim.keymap.set("n", "<leader>gp", ":G push ")
+vim.keymap.set("n", "<leader>gp", ":G push ") -- borked in noice cmdline
 vim.keymap.set("n", "<leader>gP", ":G pull")
 vim.keymap.set("n", "<leader>gw", "<cmd>Gwrite<CR>")
 vim.keymap.set("n", "<leader>gr", "<cmd>Gread<CR>")
