@@ -24,7 +24,8 @@ local plugins = {
             "nvim-treesitter/playground",
         },
         config = function() require("config.treesitter") end,
-        lazy = false,
+        event = "VeryLazy",
+        lazy = true,
     },
     {
         "numToStr/Comment.nvim",
@@ -33,7 +34,8 @@ local plugins = {
                 extra = false,
             },
         },
-        lazy = false,
+        event = "VeryLazy",
+        lazy = true,
     },
     {
         "folke/trouble.nvim",
@@ -55,7 +57,8 @@ local plugins = {
     {
         "williamboman/mason.nvim",
         config = true,
-        lazy = false,
+        event = "VeryLazy",
+        lazy = true,
     },
     {
         "hrsh7th/nvim-cmp",
@@ -83,7 +86,6 @@ local plugins = {
         config = require("config.lsp"),
         lazy = true,
     },
-    -- 'rcarriga/nvim-notify' -- unused because I'm too lazy to set it up
 
     -- navigation
     {
@@ -115,7 +117,8 @@ local plugins = {
             "debugloop/telescope-undo.nvim",
         },
         config = function() require("telescope").load_extension("undo") end,
-        lazy = false,
+        event = "VeryLazy",
+        lazy = true,
     },
 
     -- appearance
@@ -126,7 +129,11 @@ local plugins = {
         config = function() require("colorizer").setup() end,
         lazy = true,
     },
-    { "lewis6991/gitsigns.nvim", },
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
+        lazy = true,
+    },
     {
         "stevearc/dressing.nvim",
         event = {"BufReadPre", "BufNewFile" },
@@ -161,17 +168,29 @@ local plugins = {
     },
     {
         "xiyaowong/nvim-cursorword",
-        event = {"BufReadPre", "BufNewFile" },
-        lazy = false,
+        event = "VeryLazy",
+        lazy = true,
+    },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+        config = function() require("config.noice") end,
+        lazy = true,
     },
 
     -- utility
     {
         "folke/zen-mode.nvim",
         cmd = "ZenMode",
-        config = function()
-            require("config.zenmode")
-        end,
+        config = function() require("config.zenmode") end,
         lazy = true,
     },
     {
