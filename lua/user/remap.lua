@@ -95,12 +95,12 @@ vim.keymap.set("n", "<leader>ps", function()
 end)
 
 -- trouble
-vim.keymap.set("n", "<leader>Eq", "<cmd>TroubleToggle quickfix<cr>",
-    {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>Er", "<cmd>TroubleToggle document_diagnostics<cr>",
-    {silent = true, noremap = true}
-)
+local opts = {silent = true, noremap = true}
+vim.keymap.set("n", "<leader>Eq", "<cmd>TroubleToggle quickfix<cr>", opts)
+vim.keymap.set("n", "<leader>Er", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
+vim.keymap.set("n", "<leader>Ew", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
+vim.keymap.set("n", "<leader>El", "<cmd>TroubleToggle loclist<cr>", opts)
+vim.keymap.set("n", "<leader>EL", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 -- zenmode
 vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>" )
