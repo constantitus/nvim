@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -30,7 +30,7 @@ local plugins = {
     {
         "numToStr/Comment.nvim",
         opts = {
-            mappings= {
+            mappings = {
                 extra = false,
             },
         },
@@ -63,27 +63,27 @@ local plugins = {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            {"hrsh7th/cmp-buffer"},
-            {"hrsh7th/cmp-path"},
-            {"saadparwaiz1/cmp_luasnip"},
-            {"hrsh7th/cmp-nvim-lua"},
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lua" },
             -- Snippets
-            {"L3MON4D3/LuaSnip"},
-            {"rafamadriz/friendly-snippets"},
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
         },
         config = require("config.cmp"),
         event = { "InsertEnter" },
-        lazy = true;
+        lazy = true,
     },
     {
         "neovim/nvim-lspconfig",
         cmd = { "LspInfo", "LspInstall", "LspStart", },
         dependencies = {
-            {"hrsh7th/cmp-nvim-lsp"},
-            {"williamboman/mason-lspconfig.nvim"},
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "williamboman/mason-lspconfig.nvim" },
         },
         config = require("config.lsp"),
-        event = {"BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
 
@@ -95,7 +95,7 @@ local plugins = {
             "nvim-tree/nvim-web-devicons",
         },
         config = function() require("config.nvim-tree") end,
-        event = {"BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
     { "theprimeagen/harpoon", lazy = true, },
@@ -127,7 +127,7 @@ local plugins = {
     {
         "norcalli/nvim-colorizer.lua",
         config = function() require("colorizer").setup() end,
-        event = {"BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -138,7 +138,7 @@ local plugins = {
     {
         "stevearc/dressing.nvim",
         config = function() require("config.dressing") end,
-        event = {"BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -150,7 +150,7 @@ local plugins = {
             },
         },
         config = function() require("config.ibl") end,
-        event = {"BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -201,18 +201,18 @@ local plugins = {
     },
     {
         "smoka7/hop.nvim",
-        config = function() require("hop").setup{ keys = 'etovxqpdygfblzhckisuran' } end,
+        config = function() require("hop").setup { keys = 'etovxqpdygfblzhckisuran' } end,
         lazy = true,
     },
     {
         "stevearc/aerial.nvim",
         config = function() require("config.aerial") end,
-        event = {"BufReadPre", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
         "akinsho/toggleterm.nvim",
-        cmd = {"ToggleTerm", "ToggleTermSendVisualSelection" },
+        cmd = { "ToggleTerm", "ToggleTermSendVisualSelection" },
         version = "*",
         config = function() require("config.toggleterm") end,
         lazy = true,

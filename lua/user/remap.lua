@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 
 
 -- left and right for command mode
-vim.keymap.set({"c", "t"}, "<C-h>", "<left>")
-vim.keymap.set({"c", "t"}, "<C-l>", "<right>")
+vim.keymap.set({ "c", "t" }, "<C-h>", "<left>")
+vim.keymap.set({ "c", "t" }, "<C-l>", "<right>")
 
 -- word into substitute
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -36,6 +36,8 @@ vim.keymap.set("n", "<C-?>", [[?\c]])
 -- centers cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -93,11 +95,11 @@ vim.keymap.set("n", "<leader>pgb", builtin.git_branches, {})
 vim.keymap.set("n", "<leader>pu", "<cmd>Telescope undo<cr>")
 vim.keymap.set("n", "<leader>pp", "<cmd>Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>ps", function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+    builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
 -- trouble
-local opts = {silent = true, noremap = true}
+local opts = { silent = true, noremap = true }
 vim.keymap.set("n", "<leader>Eq", "<cmd>TroubleToggle quickfix<cr>", opts)
 vim.keymap.set("n", "<leader>Er", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
 vim.keymap.set("n", "<leader>Ew", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
@@ -105,33 +107,33 @@ vim.keymap.set("n", "<leader>El", "<cmd>TroubleToggle loclist<cr>", opts)
 vim.keymap.set("n", "<leader>EL", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 -- zenmode
-vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>" )
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>")
 
 
 -- hop
 local hop = require("hop")
 local directions = require("hop.hint").HintDirection
-vim.keymap.set( {"n", "v"}, "<leader>f", function()
+vim.keymap.set({ "n", "v" }, "<leader>f", function()
     hop.hint_char1({
         direction = directions.AFTER_CURSOR,
         current_line_only = false,
         hint_offset = 0
     })
-end, {remap=true})
-vim.keymap.set( {"n", "v"}, "<leader>F", function()
+end, { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>F", function()
     hop.hint_char1({
         direction = directions.BEFORE_CURSOR,
         current_line_only = false,
         hint_offset = 0
     })
-end, {remap=true})
-vim.keymap.set( {"n", "v"}, "<leader><leader>", function()
+end, { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader><leader>", function()
     hop.hint_char1({
-        direction = { directions.BEFORE_CURSOR, directions.AFTER_CURSOR},
+        direction = { directions.BEFORE_CURSOR, directions.AFTER_CURSOR },
         current_line_only = false,
         hint_offset = 0
     })
-end, {remap=true})
+end, { remap = true })
 
 -- git
 vim.keymap.set("n", "<leader>gs", "<cmd>tab G<CR>") -- I'm used to <leader>gs
