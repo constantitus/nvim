@@ -22,7 +22,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Delete without yanking
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+-- vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Yank into +
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -67,36 +67,8 @@ vim.keymap.set("n", "<leader>n", "<cmd>set hlsearch!<CR>")
 -- undotree
 vim.keymap.set("n", "<leader>u", "<Cmd>UndotreeToggle<CR>")
 
--- harpoon
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
-
-vim.keymap.set("n", "<leader>a", mark.add_file)
-vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
-vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
-vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end)
-vim.keymap.set("n", "<leader>6", function() ui.nav_file(6) end)
-vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
-vim.keymap.set("n", "<leader>8", function() ui.nav_file(8) end)
-vim.keymap.set("n", "<leader>9", function() ui.nav_file(9) end)
-
 -- tree
 vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
-
--- telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-vim.keymap.set("n", "<leader>pgf", builtin.git_files, {})
-vim.keymap.set("n", "<leader>pgc", builtin.git_commits, {})
-vim.keymap.set("n", "<leader>pgb", builtin.git_branches, {})
-vim.keymap.set("n", "<leader>pu", "<cmd>Telescope undo<cr>")
-vim.keymap.set("n", "<leader>pp", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", "<leader>ps", function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") });
-end)
 
 -- trouble
 local opts = { silent = true, noremap = true }
@@ -109,31 +81,11 @@ vim.keymap.set("n", "<leader>EL", "<cmd>TroubleToggle lsp_references<cr>", opts)
 -- zenmode
 vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>")
 
-
--- hop
-local hop = require("hop")
-local directions = require("hop.hint").HintDirection
-vim.keymap.set({ "n", "v" }, "<leader>f", function()
-    hop.hint_char1({
-        direction = directions.AFTER_CURSOR,
-        current_line_only = false,
-        hint_offset = 0
-    })
-end, { remap = true })
-vim.keymap.set({ "n", "v" }, "<leader>F", function()
-    hop.hint_char1({
-        direction = directions.BEFORE_CURSOR,
-        current_line_only = false,
-        hint_offset = 0
-    })
-end, { remap = true })
-vim.keymap.set({ "n", "v" }, "<leader><leader>", function()
-    hop.hint_char1({
-        direction = { directions.BEFORE_CURSOR, directions.AFTER_CURSOR },
-        current_line_only = false,
-        hint_offset = 0
-    })
-end, { remap = true })
+-- dap
+vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').toggle()<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap=true})
 
 -- git
 vim.keymap.set("n", "<leader>gs", "<cmd>tab G<CR>") -- I'm used to <leader>gs

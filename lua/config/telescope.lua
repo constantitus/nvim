@@ -1,0 +1,11 @@
+require("telescope").load_extension("undo")
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
+vim.keymap.set("n", "<leader>pgf", builtin.git_files, {})
+vim.keymap.set("n", "<leader>pgc", builtin.git_commits, {})
+vim.keymap.set("n", "<leader>pgb", builtin.git_branches, {})
+vim.keymap.set("n", "<leader>pu", "<cmd>Telescope undo<cr>")
+vim.keymap.set("n", "<leader>pp", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>ps", function()
+    builtin.grep_string({ search = vim.fn.input("Grep > ") });
+end)

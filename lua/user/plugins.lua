@@ -70,6 +70,8 @@ local plugins = {
             -- Snippets
             { "L3MON4D3/LuaSnip" },
             { "rafamadriz/friendly-snippets" },
+            -- Dap
+            "folke/neodev.nvim",
         },
         config = require("config.cmp"),
         event = { "InsertEnter" },
@@ -86,6 +88,17 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
+    {
+        "rcarriga/nvim-dap-ui",
+        cmd = { "DapInstall", "DapUiToggle", "DapToggleBreakpoint", "DapContinue" },
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "jay-babu/mason-nvim-dap.nvim",
+            "theHamsta/nvim-dap-virtual-text",
+        },
+        config = function() require("config.dap") end,
+        lazy = true,
+    },
 
     -- navigation
     {
@@ -98,7 +111,12 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
-    { "theprimeagen/harpoon", lazy = true, },
+    {
+        "theprimeagen/harpoon",
+        config = function() require("config.harpoon") end,
+        event = "VeryLazy",
+        lazy = true,
+    },
     {
         "mbbill/undotree",
         cmd = "UndotreeToggle",
@@ -117,7 +135,7 @@ local plugins = {
             "nvim-lua/plenary.nvim",
             "debugloop/telescope-undo.nvim",
         },
-        config = function() require("telescope").load_extension("undo") end,
+        config = function() require("config.telescope") end,
         event = "VeryLazy",
         lazy = true,
     },
@@ -132,6 +150,7 @@ local plugins = {
     },
     {
         "lewis6991/gitsigns.nvim",
+        config = function() require("gitsigns").setup() end,
         event = "VeryLazy",
         lazy = true,
     },
@@ -156,10 +175,7 @@ local plugins = {
     {
         "catppuccin/nvim",
         as = "catpuccin",
-        config = function()
-            require("gitsigns").setup()
-            vim.cmd("colorscheme catppuccin")
-        end,
+        config = function() vim.cmd("colorscheme catppuccin") end,
         lazy = false,
     },
     {
@@ -201,7 +217,8 @@ local plugins = {
     },
     {
         "smoka7/hop.nvim",
-        config = function() require("hop").setup { keys = 'etovxqpdygfblzhckisuran' } end,
+        event = "VeryLazy",
+        config = function() require("config.hop") end,
         lazy = true,
     },
     {
