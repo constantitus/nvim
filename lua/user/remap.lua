@@ -132,7 +132,8 @@ vim.keymap.set( {"n", "v"}, "<leader><leader>", function()
 end, {remap=true})
 
 -- git
-vim.keymap.set("n", "<leader>gs", "<cmd>tab G<CR>")
+vim.keymap.set("n", "<leader>gs", "<cmd>tab G<CR>") -- I'm used to <leader>gs
+vim.keymap.set("n", "<leader>gg", "<cmd>tab G<CR>") -- I should use this over <Leader>gs
 vim.keymap.set("n", "<leader>ga", "<cmd>G add %<CR>")
 vim.keymap.set("n", "<leader>gA", "<cmd>G add -A<CR>")
 vim.keymap.set("n", "<leader>gc", ":G commit -m ''<left>")
@@ -142,7 +143,7 @@ vim.keymap.set("n", "<leader>gp", ":G push ") -- borked in noice cmdline
 vim.keymap.set("n", "<leader>gP", ":G pull")
 vim.keymap.set("n", "<leader>gw", "<cmd>Gwrite<CR>")
 vim.keymap.set("n", "<leader>gr", "<cmd>Gread<CR>")
-vim.keymap.set("n", "<leader>gd", "<cmd>Gdiff<CR>")
+vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiff<CR>")
 vim.keymap.set("n", "<leader>g-", "<cmd>silent G stash<CR><cmd>e<CR>")
 vim.keymap.set("n", "<leader>g=", "<cmd>silent G stash pop<CR><cmd>e<CR>")
 
