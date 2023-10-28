@@ -20,8 +20,8 @@ return function()
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "]d", function() vim.lsp.buf.goto_next() end, opts)
         vim.keymap.set("n", "[d", function() vim.lsp.buf.goto_prev() end, opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
+        vim.keymap.set("n", "<leader>lws", function() vim.lsp.buf.workspace_symbol() end, opts)
+        vim.keymap.set("n", "<leader>ld", function() vim.lsp.buf.open_float() end, opts)
         vim.keymap.set("n", "<leader>lca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>lrr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>lrn", function() vim.lsp.buf.rename() end, opts)
@@ -46,9 +46,14 @@ return function()
         vim.lsp.handlers.hover,
         { border = "rounded" }
     )
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        { border = "rounded" }
+    )
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = true
+            virtual_text = true,
+            border = "rounded",
         }
     )
 

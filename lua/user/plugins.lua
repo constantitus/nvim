@@ -70,8 +70,6 @@ local plugins = {
             -- Snippets
             { "L3MON4D3/LuaSnip" },
             { "rafamadriz/friendly-snippets" },
-            -- Dap
-            "folke/neodev.nvim",
         },
         config = require("config.cmp"),
         event = { "InsertEnter" },
@@ -83,6 +81,10 @@ local plugins = {
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
             { "williamboman/mason-lspconfig.nvim" },
+            {
+                "folke/neodev.nvim",
+                config = function() require("neodev").setup() end,
+            },
         },
         config = require("config.lsp"),
         event = { "BufReadPre", "BufNewFile" },
