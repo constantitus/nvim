@@ -95,6 +95,7 @@ local plugins = {
             "mfussenegger/nvim-dap",
             "jay-babu/mason-nvim-dap.nvim",
             "theHamsta/nvim-dap-virtual-text",
+            "leoluz/nvim-dap-go",
         },
         config = function() require("config.dap") end,
         lazy = true,
