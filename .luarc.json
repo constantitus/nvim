@@ -10,7 +10,4 @@
         "$VIMRUNTIME",
         "./lua"
     ],
-    "Lua": {
-        "workspace.checkThirdParty": false
-    }
 }
