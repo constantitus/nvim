@@ -86,7 +86,7 @@ local plugins = {
                 config = function() require("neodev").setup() end,
             },
         },
-        config = require("config.lsp"),
+        config = function() require("config.lsp") end,
         event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
