@@ -99,6 +99,7 @@ vim.keymap.set("n", "<leader>gp", ":G push ") -- borked in noice cmdline
 vim.keymap.set("n", "<leader>gP", ":G pull")
 vim.keymap.set("n", "<leader>gw", "<cmd>Gwrite<CR>")
 vim.keymap.set("n", "<leader>gr", "<cmd>Gread<CR>")
+vim.keymap.set("n", "<leader>gR", ":G rebase -i ")
 vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiff<CR>")
 vim.keymap.set("n", "<leader>g-", "<cmd>silent G stash<CR><cmd>e<CR>")
 vim.keymap.set("n", "<leader>g=", "<cmd>silent G stash pop<CR><cmd>e<CR>")
