@@ -19,10 +19,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Paste without yanking
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>P", [["_dP]])
 
 -- Delete without yanking
--- vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>X", [["_x]])
 
 -- Yank into +
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
