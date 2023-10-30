@@ -8,7 +8,7 @@ require("toggleterm").setup({
     shade_in_insert = true,
     start_in_insert = true,
     insert_mappings = true,
-    direction = "float",
+    direction = "horizontal",
     close_on_exit = true,
     shell = vim.o.shell,
     autochdir = true,
@@ -21,10 +21,12 @@ require("toggleterm").setup({
         },
     },
 })
--- makes <Esc> work in terminal
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
+    -- makes <Esc> work in terminal
     vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
+
+    vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
