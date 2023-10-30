@@ -111,7 +111,7 @@ local plugins = {
             "nvim-tree/nvim-web-devicons",
         },
         config = function() require("config.nvim-tree") end,
-        event = { "BufReadPre", "BufNewFile" },
+        event = "VeryLazy",
         lazy = true,
     },
     {
@@ -144,7 +144,11 @@ local plugins = {
     },
 
     -- appearance
-    require("config.alpha"),
+    {
+        "goolord/alpha-nvim",
+        config = function() require("config.alpha") end,
+        lazy = false,
+    },
     {
         "norcalli/nvim-colorizer.lua",
         config = function() require("colorizer").setup() end,
