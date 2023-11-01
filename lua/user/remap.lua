@@ -121,6 +121,6 @@ vim.keymap.set("n", "<leader>Cw", "<cmd>CursorWordToggle<CR>")
 
 vim.keymap.set("n", "<leader>A", "<cmd>AerialToggle!<CR>")
 
-vim.keymap.set("n", "<C-\\>", "<Cmd>ToggleTerm<CR>")
-vim.keymap.set("n", "<leader><C-\\>", "<Cmd>ToggleTerm direction=float<CR>")
+vim.keymap.set("n", "<C-\\>", "<Cmd>ToggleTerm direction=float<CR>")
+vim.keymap.set("n", "<leader><C-\\>", "<Cmd>ToggleTerm<CR>")
 vim.keymap.set("v", "<C-\\>", "<Cmd>ToggleTermSendVisualSelection<CR>")
