@@ -240,7 +240,15 @@ local plugins = {
         version = "*",
         config = function() require("config.toggleterm") end,
         lazy = true,
-    }
+    },
+    {
+        "nvim-neorg/neorg",
+        build = ":Neorg sync-parsers",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function() require("config.neorg") end,
+        event = "BufReadPre",
+        lazy = true,
+    },
 }
 
 require("lazy").setup(plugins)
