@@ -15,7 +15,7 @@ vim.keymap.set("v", "<leader>s", [["qy:%s/<C-r>q//gI<left><left><left>]])
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- J leeps your cursor location
+-- J keeps your cursor location
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Paste without yanking
