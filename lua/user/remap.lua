@@ -5,6 +5,8 @@ vim.g.mapleader = " "
 -- left and right for command mode
 vim.keymap.set({ "c", "t" }, "<C-h>", "<left>")
 vim.keymap.set({ "c", "t" }, "<C-l>", "<right>")
+vim.keymap.set({ "c", "t" }, "<C-j>", "<C-left>")
+vim.keymap.set({ "c", "t" }, "<C-k>", "<C-right>")
 
 -- word into substitute
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
