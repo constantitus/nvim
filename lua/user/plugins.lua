@@ -115,6 +115,14 @@ local plugins = {
         lazy = true,
     },
     {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function() require("config.oil") end,
+        lazy = false,
+    },
+    {
         "theprimeagen/harpoon",
         config = function() require("config.harpoon") end,
         event = "VeryLazy",
@@ -211,6 +219,21 @@ local plugins = {
 
     -- utility
     {
+        "nvim-neorg/neorg",
+        build = ":Neorg sync-parsers",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function() require("config.neorg") end,
+        event = "BufReadPre",
+        lazy = true,
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        cmd = { "ToggleTerm", "ToggleTermSendVisualSelection" },
+        version = "*",
+        config = function() require("config.toggleterm") end,
+        lazy = true,
+    },
+    {
         "folke/zen-mode.nvim",
         cmd = "ZenMode",
         config = function() require("config.zenmode") end,
@@ -232,21 +255,6 @@ local plugins = {
         "stevearc/aerial.nvim",
         config = function() require("config.aerial") end,
         event = { "BufReadPre", "BufNewFile" },
-        lazy = true,
-    },
-    {
-        "akinsho/toggleterm.nvim",
-        cmd = { "ToggleTerm", "ToggleTermSendVisualSelection" },
-        version = "*",
-        config = function() require("config.toggleterm") end,
-        lazy = true,
-    },
-    {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function() require("config.neorg") end,
-        event = "BufReadPre",
         lazy = true,
     },
 }

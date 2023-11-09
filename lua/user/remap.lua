@@ -70,7 +70,9 @@ vim.keymap.set("n", "<leader>n", "<cmd>set hlsearch!<CR>")
 vim.keymap.set("n", "<leader>u", "<Cmd>UndotreeToggle<CR>")
 
 -- tree
-vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>")
+-- oil
+vim.keymap.set("n", "<leader>T", "<cmd>Oil<CR>")
 
 -- trouble
 local opts = { silent = true, noremap = true }
