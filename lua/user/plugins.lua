@@ -199,10 +199,17 @@ local plugins = {
         lazy = false,
     },
     {
-        "xiyaowong/nvim-cursorword",
+        'echasnovski/mini.cursorword',
+        version = false,
+        config = function() require("mini.cursorword").setup({ delay = 0 }) end,
         event = "VeryLazy",
         lazy = true,
     },
+    --[[ {
+        "xiyaowong/nvim-cursorword",
+        event = "VeryLazy",
+        lazy = false,
+    }, ]]
     {
         "folke/noice.nvim",
         opts = {
