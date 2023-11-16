@@ -135,8 +135,8 @@ local plugins = {
     },
     {
         "tpope/vim-fugitive",
-        cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff" },
-        -- TODO: command Gdiff not found after loading vim-fugitive
+        cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff", "Gvdiff" },
+        -- TODO: command Gdiff/Gvdiff not found after loading vim-fugitive
         lazy = true,
     },
     {
