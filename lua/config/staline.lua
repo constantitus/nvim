@@ -1,5 +1,6 @@
-require("staline").setup {
-    defaults          = {
+require("staline").setup({
+    defaults = {
+        harpoon_mark = "",
         expand_null_ls              = false, -- This expands out all the null-ls sources to be shown
         left_separator              = "",
         right_separator             = "",
@@ -50,9 +51,10 @@ require("staline").setup {
         },
         mid   = { { 'StlLspName', 'lsp_name' }, { 'StlLsp', 'lsp' }, },
         right = {
-            { 'StlLine',       'file_size' },
-            { 'StlLine',       'line_column' },
-            { 'StlCoolSymbol', 'cool_symbol' }, ' ',
+            'harpoon_mark',
+            { 'StlLine',        'file_size' },
+            { 'StlLine',        'line_column' },
+            { 'StlCoolSymbol',  'cool_symbol' }, ' ',
 
         },
     },
@@ -78,6 +80,6 @@ require("staline").setup {
     file_icons = {
         conf = ' ', zig = ' ', sp = 'S',
     }
-}
+})
 
 -- the colors are in user.set

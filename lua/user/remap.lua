@@ -62,9 +62,9 @@ vim.keymap.set("n", "]l", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "[l", "<cmd>lprev<CR>zz")
 
 -- commands
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>wr", "<cmd>set wrap!<CR>")
-vim.keymap.set("n", "<leader>n", "<cmd>set hlsearch!<CR>")
+vim.keymap.set("n", "<leader>nx", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>nw", "<cmd>set wrap!<CR>")
+vim.keymap.set("n", "<leader>nh", "<cmd>set hlsearch!<CR>")
 
 -- undotree
 vim.keymap.set("n", "<leader>u", "<Cmd>UndotreeToggle<CR>")
@@ -110,6 +110,7 @@ vim.keymap.set("n", "<leader>g=", "<cmd>silent G stash pop<CR><cmd>e<CR>")
 
 -- notify
 vim.keymap.set("n", "<leader>N", "<cmd>Telescope notify<CR>")
+vim.keymap.set("n", "<leader>nn", function() require("notify").dismiss() end)
 
 -- lazy
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>")
