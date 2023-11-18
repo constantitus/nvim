@@ -92,7 +92,12 @@ local plugins = {
     },
     {
         "rcarriga/nvim-dap-ui",
-        cmd = { "DapInstall", "DapUiToggle", "DapToggleBreakpoint", "DapContinue" },
+        cmd = {
+            "DapInstall",
+            "DapUiToggle",
+            "DapToggleBreakpoint",
+            "DapContinue"
+        },
         dependencies = {
             "mfussenegger/nvim-dap",
             "jay-babu/mason-nvim-dap.nvim",
@@ -104,16 +109,15 @@ local plugins = {
     },
 
     -- navigation
-    {
+    --[[ {
         "nvim-tree/nvim-tree.lua",
-        cmd = "NvimTreeToggle",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
         config = function() require("config.nvim-tree") end,
         event = "VeryLazy",
         lazy = true,
-    },
+    }, ]]
     {
         'stevearc/oil.nvim',
         opts = {},
@@ -136,7 +140,7 @@ local plugins = {
     {
         "tpope/vim-fugitive",
         cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff", "Gvdiff" },
-        -- TODO: command Gdiff/Gvdiff not found after loading vim-fugitive
+        event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
     {
@@ -194,8 +198,11 @@ local plugins = {
         lazy = false,
     },
     {
-        "tamton-aquib/staline.nvim",
+        -- "tamton-aquib/staline.nvim",
+        -- dir = "~/git/staline.nvim/",
+        "constantitus/staline.nvim",
         config = function() require("config.staline") end,
+        event = "VeryLazy",
         lazy = false,
     },
     {
@@ -205,17 +212,13 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
-    --[[ {
-        "xiyaowong/nvim-cursorword",
-        event = "VeryLazy",
-        lazy = false,
-    }, ]]
     {
         "folke/noice.nvim",
         opts = {
         },
         dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            -- if you lazy-load any plugin below, make sure
+            -- to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
@@ -248,7 +251,11 @@ local plugins = {
     },
     {
         "ziontee113/color-picker.nvim",
-        cmd = "PickColor",
+        cmd = {
+            "PickColor",
+            "ConvertHEXandRGB",
+            "ConvertHEXandHSL",
+        },
         config = function() require("config.color-picker") end,
         lazy = true,
     },

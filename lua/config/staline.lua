@@ -1,12 +1,11 @@
 require("staline").setup({
     defaults = {
-        harpoon_mark = "",
         expand_null_ls              = false, -- This expands out all the null-ls sources to be shown
         left_separator              = "",
         right_separator             = "",
         full_path                   = false,
         -- line_column                 = "[%l/%L] :%c 並%p%% ", -- `:h stl` to see all flags.
-        line_column                 = "%p%% 並%l:%c ",
+        line_column                 = "%p%% 並%l:%c",
 
         fg                          = "#986fec", -- Foreground text color.
         bg                          = "none", -- Default background is transparent.
@@ -46,16 +45,15 @@ require("staline").setup({
         left  = {
             ' ', 'right_sep', 'mode', 'left_sep', '  ',
             { 'StlFolders', '󰉋 ' }, { 'StlFolders', 'cwd' },
-            { 'StlFolders', 'file_name' },
-            { 'StlGit', 'branch' },
+            { 'StlFolders',     'file_name' },
+            { 'StlGit',         'branch' },
         },
         mid   = { { 'StlLspName', 'lsp_name' }, { 'StlLsp', 'lsp' }, },
         right = {
-            'harpoon_mark',
             { 'StlLine',        'file_size' },
             { 'StlLine',        'line_column' },
-            { 'StlCoolSymbol',  'cool_symbol' }, ' ',
-
+            { 'StlHarpoon',        'harpoon', },
+            -- { 'StlCoolSymbol',  'cool_symbol' }, ' ',
         },
     },
     inactive_sections = {
