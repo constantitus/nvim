@@ -19,7 +19,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:1"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
@@ -42,6 +42,10 @@ function ColorMyPencils(color)
     vim.api.nvim_set_hl(0, "TelescopeBorder", 		{ bg = "none" })
     vim.api.nvim_set_hl(0, "NormalNC", 				{ bg = "none" })
     vim.api.nvim_set_hl(0, "NormalSB", 				{ bg = "none" })
+    vim.api.nvim_set_hl(0, "Folded", 				{ bg = "none" })
+    vim.api.nvim_set_hl(0, "NonText", 				{ bg = "none" })
+    vim.api.nvim_set_hl(0, "SpecialKey", 			{ bg = "none" })
+    vim.api.nvim_set_hl(0, "SignColumn", 			{ bg = "none" })
 end
 
 ColorMyPencils()
