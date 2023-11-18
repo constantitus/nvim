@@ -43,7 +43,6 @@ function ColorMyPencils(color)
     vim.api.nvim_set_hl(0, "NormalNC", 				{ bg = "none" })
     vim.api.nvim_set_hl(0, "NormalSB", 				{ bg = "none" })
     vim.api.nvim_set_hl(0, "Folded", 				{ link="Directory" })
-    vim.api.nvim_set_hl(0, "NonText", 				{ bg = "none" })
     vim.api.nvim_set_hl(0, "SpecialKey", 			{ bg = "none" })
     vim.api.nvim_set_hl(0, "SignColumn", 			{ bg = "none" })
 end
