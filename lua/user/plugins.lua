@@ -198,9 +198,7 @@ local plugins = {
         lazy = false,
     },
     {
-        -- "tamton-aquib/staline.nvim",
-        -- dir = "~/git/staline.nvim/",
-        "constantitus/staline.nvim",
+        "tamton-aquib/staline.nvim",
         config = function() require("config.staline") end,
         event = "VeryLazy",
         lazy = false,

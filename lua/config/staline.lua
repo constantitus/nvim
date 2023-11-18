@@ -1,3 +1,26 @@
+local harpoon_marks = function()
+    local marks = require("harpoon").get_mark_config().marks
+    local buffer = vim.api.nvim_buf_get_name(0)
+    local current = require("harpoon.mark").get_index_of(buffer)
+    local keymaps = {"1", "2", "3", "4", "5", "6", "7", "8", "9"}
+    -- local keymaps = {"H", "J", "K", "L"}
+    local amount = 9
+    if #marks < amount then
+        amount = #marks
+    end
+
+    local str = ""
+    for i = 1, amount do
+        if i == current then
+            str = str .. "[" .. keymaps[i] .. "]"
+        else
+            str = str .. " " .. keymaps[i] .. " "
+        end
+    end
+
+    return str
+end
+
 require("staline").setup({
     defaults = {
         expand_null_ls              = false, -- This expands out all the null-ls sources to be shown
@@ -52,7 +75,7 @@ require("staline").setup({
         right = {
             { 'StlLine',        'file_size' },
             { 'StlLine',        'line_column' },
-            { 'StlHarpoon',        'harpoon', },
+            { 'StlHarpoon',        harpoon_marks, },
             -- { 'StlCoolSymbol',  'cool_symbol' }, ' ',
         },
     },
