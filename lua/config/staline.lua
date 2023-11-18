@@ -37,11 +37,11 @@ require("staline").setup({
         true_colors                 = false, -- true lsp colors.
         font_active                 = "bold", -- "bold", "italic", "bold,italic", etc
 
-        mod_symbol                  = "  ",
+        mod_symbol                  = " ",
         lsp_client_symbol           = " ",
         lsp_client_character_length = 12, -- Shorten LSP client names.
         branch_symbol               = " ",
-        cool_symbol                 = "   ", -- Change this to override default OS icon.
+        cool_symbol                 = " ", -- Change this to override default OS icon.
         null_ls_symbol              = "", -- A symbol to indicate that a source is coming from null-ls
     },
     mode_colors = {
@@ -73,7 +73,7 @@ require("staline").setup({
         },
         mid   = { { 'StlLspName', 'lsp_name' }, { 'StlLsp', 'lsp' }, },
         right = {
-            { 'StlLine',        'file_size' },
+            -- { 'StlLine',        'file_size' },
             { 'StlLine',        'line_column' },
             { 'StlHarpoon',        harpoon_marks, },
             -- { 'StlCoolSymbol',  'cool_symbol' }, ' ',
