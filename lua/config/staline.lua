@@ -1,4 +1,4 @@
-local harpoon_marks = function()
+local function harpoon_marks()
     local marks = require("harpoon").get_mark_config().marks
     local buffer = vim.api.nvim_buf_get_name(0)
     local current = require("harpoon.mark").get_index_of(buffer)
@@ -8,14 +8,19 @@ local harpoon_marks = function()
     if #marks < amount then
         amount = #marks
     end
-
-    local str = ""
+    local str = "%#StlHarpoon#"
     for i = 1, amount do
-        if i == current then
-            str = str .. "[" .. keymaps[i] .. "]"
+        if i == current
+        then
+            str = str .. "[%#StlHarpoonCur#" .. keymaps[i] .. "%#StlHarpoon#]"
         else
             str = str .. " " .. keymaps[i] .. " "
         end
+    end
+    if current == nil then
+        str = str .. " %#StlHarpoonCur#󰛣 "
+    else
+        str = str .. " %#StlHarpoonCur#󰛢 "
     end
 
     return str
@@ -34,7 +39,7 @@ require("staline").setup({
         bg                          = "none", -- Default background is transparent.
         inactive_color              = "#303030",
         inactive_bgcolor            = "none",
-        true_colors                 = false, -- true lsp colors.
+        true_colors                 = true, -- true lsp colors.
         font_active                 = "bold", -- "bold", "italic", "bold,italic", etc
 
         mod_symbol                  = " ",
@@ -51,46 +56,46 @@ require("staline").setup({
         c           = "#fe640b",
         v           = "#8839ef",
         V           = "#7287fd",
-        ['']      = "#7287fd",
+        [""]      = "#7287fd",
         t           = "#99e699",
     },
     mode_icons = {
-        n           = '󱇪 N', -- "󰫻 ",
-        i           = '󱇪 I', -- "󱂈 ",
-        ic          = '󱇪 Ic', -- ' ',
-        c           = '󱇪 C', -- "󰫰 ",
-        v           = '󱇪 V', -- "󱂌 ",
-        V           = '󱇪 V LINE', -- "󱂌 ",
-        ['']      = '󱇪 V BLOCK', -- "󱂌 ",
-        t           = '󱇪 TERM', -- "󱂌 ",
+        n           = "󰄛 N", -- "󰫻 ",
+        i           = "󰄛 I", -- "󱂈 ",
+        ic          = "󰄛 Ic", -- " ",
+        c           = "󰄛 C", -- "󰫰 ",
+        v           = "󰄛 V", -- "󱂌 ",
+        V           = "󰄛 V LINE", -- "󱂌 ",
+        [""]      = "󰄛 V BLOCK", -- "󱂌 ",
+        t           = "󰄛 TERM", -- "󱂌 ",
     },
     sections = {
         left  = {
-            ' ', 'right_sep', 'mode', 'left_sep', '  ',
-            { 'StlFolders', '󰉋 ' }, { 'StlFolders', 'cwd' },
-            { 'StlFolders',     'file_name' },
-            { 'StlGit',         'branch' },
+            " ", "right_sep", "mode", "left_sep", "  ",
+            { "StlFolders", "󰉋" }, { "StlFolders", "cwd" },
+            { "StlFolders",     "file_name" },
+            { "StlGit",         "branch" },
         },
-        mid   = { { 'StlLspName', 'lsp_name' }, { 'StlLsp', 'lsp' }, },
+        mid   = { { "StlLspName", "lsp_name" } },
         right = {
-            -- { 'StlLine',        'file_size' },
-            { 'StlLine',        'line_column' },
-            { 'StlHarpoon',        harpoon_marks, },
-            -- { 'StlCoolSymbol',  'cool_symbol' }, ' ',
+            "lsp",
+            -- { "StlLine",        "file_size" },
+            { "StlLine",        "line_column" },
+            harpoon_marks,
         },
     },
     inactive_sections = {
-        left  = { 'branch' },
-        mid   = { 'file_name' },
-        right = { 'line_column' }
+        left  = { "branch" },
+        mid   = { "file_name" },
+        right = { "line_column" }
     },
     special_table     = {
-        NvimTree = { 'NvimTree', ' ' },
-        packer = { 'Packer', ' ' },
-        fugitive = { 'Git', '󰊢 ' },
-        harpoon = { 'Harpoon', '󱡅 ' },
-        telescope = { 'Telescope', ' ' },
-        alpha = { 'N E O V I M', '' },
+        NvimTree = { "NvimTree", " " },
+        packer = { "Packer", " " },
+        fugitive = { "Git", "󰊢 " },
+        harpoon = { "Harpoon", "󱡅 " },
+        telescope = { "Telescope", " " },
+        alpha = { "N E O V I M", "" },
     },
     lsp_symbols = {
         Error = " ",
@@ -99,7 +104,7 @@ require("staline").setup({
         Hint = " ",
     },
     file_icons = {
-        conf = ' ', zig = ' ', sp = 'S',
+        conf = " ", zig = " ", sp = "S",
     }
 })
 
