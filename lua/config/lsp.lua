@@ -3,7 +3,7 @@ lsp.extend_lspconfig()
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    -- goto (also sets mark B to go back)
+    -- go to (also sets mark B to go back)
     vim.keymap.set("n", "gd", function() -- definition
         vim.api.nvim_feedkeys("mB", "n", false)
         vim.lsp.buf.definition()
@@ -36,8 +36,8 @@ vim.diagnostic.config({
         style = 'minimal',
         border = 'rounded',
         source = 'always',
-        header = '',
-        prefix = '',
+        --[[ header = '',
+        prefix = '', ]]
     },
 })
 
@@ -61,11 +61,11 @@ require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls" },
     handlers = {
         lsp.default_setup,
-        --[[ lua_ls = function()
-                -- (Optional) Configure lua language server for neovim
-                local lua_opts = lsp.nvim_lua_ls()
-                require('lspconfig').lua_ls.setup(lua_opts)
-            end, ]]
+        lua_ls = function()
+            -- (Optional) Configure lua language server for neovim
+            local lua_opts = lsp.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end,
     }
 })
 
