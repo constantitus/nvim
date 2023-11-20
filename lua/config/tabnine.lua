@@ -1,7 +1,7 @@
 require('tabnine').setup({
   disable_auto_comment=true,
-  accept_keymap="<S-CR>",
-  dismiss_keymap = "<C-]>",
+  accept_keymap="<S-CR>", -- "<CR>",
+  -- dismiss_keymap = "",
   debounce_ms = 800,
   suggestion_color = {gui = "#808080", cterm = 244},
   exclude_filetypes = {"TelescopePrompt"},
@@ -9,5 +9,3 @@ require('tabnine').setup({
 })
 
 vim.api.nvim_set_hl(0, "TabnineSuggestion", {fg = "#808080"})
-
-

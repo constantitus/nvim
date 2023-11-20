@@ -28,12 +28,12 @@ return function()
             { name = 'luasnip', keyword_length = 2 },
         },
         completion = {
-            completeopt = 'menu,menuone,noinsert',
+            completeopt = 'menu,menuone,noinsert,noselect',
         },
         mapping = cmp.mapping.preset.insert({
             ['<C-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            ['<CR>'] = cmp.mapping.confirm({ select = false }),
             ["<C-Space"] = cmp.mapping.complete(),
         }),
         lua_ls = function()

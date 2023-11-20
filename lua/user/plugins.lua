@@ -264,13 +264,13 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
-    --[[ { -- Enable manually
+    {
         'codota/tabnine-nvim',
         build = "./dl_binaries.sh",
         config = function() require("config.tabnine") end,
         event = "VeryLazy",
         lazy = true,
-    }, ]]
+    },
 }
 
 require("lazy").setup(plugins)
