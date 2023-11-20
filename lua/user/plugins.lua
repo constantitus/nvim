@@ -12,7 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    -- feedback
+    -- feedback --
+    --------------
     {
         "nvim-treesitter/nvim-treesitter",
         build = function()
@@ -108,16 +109,8 @@ local plugins = {
         lazy = true,
     },
 
-    -- navigation
-    --[[ {
-        "nvim-tree/nvim-tree.lua",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function() require("config.nvim-tree") end,
-        event = "VeryLazy",
-        lazy = true,
-    }, ]]
+    -- navigation --
+    ----------------
     {
         'stevearc/oil.nvim',
         opts = {},
@@ -155,7 +148,8 @@ local plugins = {
         lazy = true,
     },
 
-    -- appearance
+    -- appearance --
+    ----------------
     {
         "goolord/alpha-nvim",
         config = function() require("config.alpha") end,
@@ -225,7 +219,8 @@ local plugins = {
         lazy = true,
     },
 
-    -- utility
+    -- utility --
+    -------------
     {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
@@ -269,6 +264,13 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         lazy = true,
     },
+    --[[ { -- Enable manually
+        'codota/tabnine-nvim',
+        build = "./dl_binaries.sh",
+        config = function() require("config.tabnine") end,
+        event = "VeryLazy",
+        lazy = true,
+    }, ]]
 }
 
 require("lazy").setup(plugins)
