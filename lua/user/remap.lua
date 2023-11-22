@@ -1,6 +1,6 @@
--- set <leader> to space
+-- set <leader> to space and <localleader> to comma
 vim.g.mapleader = " "
-
+vim.g.maplocalleader = ","
 
 -- left and right for command mode
 vim.keymap.set({ "c", "t" }, "<C-h>", "<left>")
