@@ -1,6 +1,6 @@
 require('tabnine').setup({
   disable_auto_comment=true,
-  accept_keymap="<S-CR>", -- "<CR>",
+  accept_keymap="<CR>", -- "<CR>",
   -- dismiss_keymap = "",
   debounce_ms = 800,
   suggestion_color = {gui = "#808080", cterm = 244},
@@ -9,3 +9,4 @@ require('tabnine').setup({
 })
 
 vim.api.nvim_set_hl(0, "TabnineSuggestion", {fg = "#808080"})
+vim.keymap.set("n", "<leader>Tt", "<Cmd>TabnineToggle<CR>")

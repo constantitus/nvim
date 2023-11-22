@@ -265,6 +265,12 @@ local plugins = {
         lazy = true,
     },
     {
+        'echasnovski/mini.align',
+        version = false,
+        init = function() require("mini.align").setup() end,
+        lazy = true,
+    },
+    {
         'codota/tabnine-nvim',
         build = "./dl_binaries.sh",
         config = function() require("config.tabnine") end,
