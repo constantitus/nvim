@@ -21,6 +21,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes:1"
 vim.opt.isfname:append("@-@")
+vim.opt.laststatus = 3
 
 vim.opt.updatetime = 50
 
@@ -48,6 +49,8 @@ function ColorMyPencils(color)
 end
 
 ColorMyPencils()
+
+vim.api.nvim_set_hl(0, "VertSplit",                 { fg = "#737ab8" })
 
 -- staline colors
 vim.api.nvim_set_hl(0, "StlFolders",          { fg="#f0c6c6", bg="none" })
