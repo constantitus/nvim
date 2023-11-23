@@ -278,16 +278,11 @@ local plugins = {
         lazy = true,
     },
     --[[ {
-        "edluffy/hologram.nvim",
-        config = function() require("hologram").setup({opts={}, auto_display = true}) end,
-        lazy = false,
-    }, ]]
-    {
         "3rd/image.nvim",
         config = function() require("config.image") end,
         event = "VeryLazy",
         lazy = true,
-    },
+    }, ]]
 }
 
 require("lazy").setup(plugins)
