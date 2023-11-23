@@ -265,15 +265,26 @@ local plugins = {
         lazy = true,
     },
     {
-        'echasnovski/mini.align',
+        "echasnovski/mini.align",
         version = false,
         init = function() require("mini.align").setup() end,
         lazy = true,
     },
     {
-        'codota/tabnine-nvim',
+        "codota/tabnine-nvim",
         build = "./dl_binaries.sh",
         config = function() require("config.tabnine") end,
+        event = "VeryLazy",
+        lazy = true,
+    },
+    --[[ {
+        "edluffy/hologram.nvim",
+        config = function() require("hologram").setup({opts={}, auto_display = true}) end,
+        lazy = false,
+    }, ]]
+    {
+        "3rd/image.nvim",
+        config = function() require("config.image") end,
         event = "VeryLazy",
         lazy = true,
     },
