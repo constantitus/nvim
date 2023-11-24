@@ -194,8 +194,8 @@ local plugins = {
     {
         "tamton-aquib/staline.nvim",
         config = function() require("config.staline") end,
-        event = "VeryLazy",
-        lazy = false,
+        event = { "BufReadPre", "BufNewFile" },
+        lazy = true,
     },
     {
         'echasnovski/mini.cursorword',
@@ -277,6 +277,16 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
+    --[[ {
+        dir = "~/git/telescope-media-files.nvim/",
+        dependencies = {
+            "nvim-lua/popup.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        event = "VeryLazy",
+        lazy = true,
+    }, ]]
     --[[ {
         "3rd/image.nvim",
         config = function() require("config.image") end,

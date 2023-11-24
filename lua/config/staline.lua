@@ -107,5 +107,6 @@ require("staline").setup({
         conf = " ", zig = " ", sp = "S",
     }
 })
+vim.opt.laststatus = 3
 
 -- the colors are in user.set

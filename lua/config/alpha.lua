@@ -77,6 +77,7 @@ dashboard.opts.layout = {
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LazyVimStarted',
     callback = function()
+        vim.opt.laststatus = 0
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         dashboard.section.footer.val = {

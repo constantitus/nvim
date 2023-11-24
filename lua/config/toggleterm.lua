@@ -8,7 +8,7 @@ require("toggleterm").setup({
     shade_in_insert = true,
     start_in_insert = true,
     insert_mappings = true,
-    direction = "horizontal",
+    direction = "float",
     close_on_exit = true,
     shell = vim.o.shell,
     autochdir = true,

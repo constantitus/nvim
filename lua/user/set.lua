@@ -21,7 +21,9 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes:1"
 vim.opt.isfname:append("@-@")
-vim.opt.laststatus = 3
+
+-- laststatus set in config.staline
+-- vim.opt.laststatus = 3
 
 vim.opt.updatetime = 50
 
