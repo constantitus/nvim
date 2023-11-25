@@ -3,17 +3,13 @@ lsp.extend_lspconfig()
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    -- go to (also sets mark B to go back)
     vim.keymap.set("n", "gd", function() -- definition
-        vim.api.nvim_feedkeys("mB", "n", false)
         vim.lsp.buf.definition()
     end, opts)
     vim.keymap.set("n", "gD", function() -- declaration
-        vim.api.nvim_feedkeys("mB", "n", false)
         vim.lsp.buf.declaration()
     end, opts)
     vim.keymap.set("n", "gi", function() -- implementation
-        vim.api.nvim_feedkeys("mB", "n", false)
         vim.lsp.buf.implementation()
     end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
