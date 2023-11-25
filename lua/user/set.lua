@@ -23,7 +23,7 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.isfname:append("@-@")
 
 -- laststatus set in config.staline
--- vim.opt.laststatus = 3
+vim.opt.laststatus = 0
 
 vim.opt.updatetime = 50
 
