@@ -1,0 +1,72 @@
+snippet iferr "if err"
+	if ${1:err} != nil {
+		$0
+	}
+
+snippet ff "fmt.Printf"
+	fmt.Printf("%+v\n", ${1:obj})
+
+snippet fl "fmt.Println"
+	fmt.Println("$1")
+
+snippet fp "fmt.Print"
+	fmt.Print("$1")
+
+snippet fs "fmt.Sprintf"
+	fmt.Sprintf("%+v", ${1:obj})
+
+snippet for "for statement"
+	for ${1} {
+		$0
+	}
+
+snippet fori "for n statement"
+	for ${1:i} := ${2:0}; $1 < ${3:count}; $1${4:++} {
+		$0
+	}
+
+snippet forr "for range statement"
+	for ${1:_, }${2:v} := range ${3:v} {
+		$0
+	}
+
+snippet ch "channel declaration"
+	chan ${1:type}
+
+snippet map "map declaration"
+	map[${1:type}]${2:type}
+
+snippet in "empty interface"
+	interface{}
+
+snippet if "if statement"
+	if ${1:condition} {
+		$0
+	}
+
+snippet el "else branch"
+	else {
+		$0
+	}
+
+snippet ife "if else statement"
+	if ${1:condition} {
+		$2
+	} else {
+		$0
+	}
+
+snippet switch "switch statement"
+	switch ${1:expression} {
+		case ${2:condition}:
+		$0
+	}
+
+snippet make "make(...)"
+	make(${1:type}, ${2:0})
+
+snippet new "new(...)"
+	new(${1:type})
+
+snippet pn "panic(...)"
+	panic("$0")
