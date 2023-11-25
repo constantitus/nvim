@@ -290,6 +290,7 @@ local plugins = {
     {
         -- dir = "~/git/image.nvim/",
         "constantitus/image.nvim",
+        branch = "magick-included",
         config = function() require("config.image") end,
         event = "VeryLazy",
         lazy = true,
