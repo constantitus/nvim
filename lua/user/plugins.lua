@@ -277,7 +277,7 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
-    --[[ {
+    --[[ { -- pixelated, for some reason
         dir = "~/git/telescope-media-files.nvim/",
         dependencies = {
             "nvim-lua/popup.nvim",
@@ -287,12 +287,13 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     }, ]]
-    --[[ {
-        "3rd/image.nvim",
+    {
+        -- dir = "~/git/image.nvim/",
+        "constantitus/image.nvim",
         config = function() require("config.image") end,
         event = "VeryLazy",
         lazy = true,
-    }, ]]
+    },
 }
 
 require("lazy").setup(plugins)
