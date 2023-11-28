@@ -38,10 +38,15 @@ vim.keymap.set("n", "<C-?>", [[?\c]])
 -- centers cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
+
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<C-j>", "jzz")
+vim.keymap.set("n", "<C-k>", "kzz")
 
 -- resize split
 vim.keymap.set("n", "<C-_>", "<cmd>resize -3<CR>")
