@@ -29,8 +29,7 @@ vim.opt.updatetime = 50
 
 -- vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = " "
-
+-- Highlights and colors
 function ColorMyPencils(color)
     color = color or "catppuccin-frappe"
     vim.cmd.colorscheme(color)
@@ -53,7 +52,6 @@ end
 ColorMyPencils()
 
 vim.api.nvim_set_hl(0, "VertSplit",                 { fg = "#737ab8" })
-
 -- staline colors
 vim.api.nvim_set_hl(0, "StlFolders",          { fg="#f0c6c6", bg="none" })
 vim.api.nvim_set_hl(0, "StlGit",              { fg="#fab387", bg="none" })
@@ -64,3 +62,18 @@ vim.api.nvim_set_hl(0, "StlHarpoon",          { fg="#cba6f7", bg="none" })
 vim.api.nvim_set_hl(0, "StlHarpoonCur",       { fg="#7287fd", bg="none" })
 -- vim.api.nvim_set_hl(0, "StlCoolSymbol", { fg="#8839ef", bg="none" })
 -- vim.api.nvim_set_hl(0, "StlRed",        { fg="#d20f39", bg="none" })
+
+-- global functions
+P = function(v)
+    print(vim.inspect(v))
+    return v
+end
+
+RELOAD = function(...)
+    return require("plenary.reload").reload_module(...)
+end
+
+R = function(name)
+    RELOAD(name)
+    return require(name)
+end
