@@ -277,16 +277,6 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
-    --[[ { -- pixelated, for some reason
-        dir = "~/git/telescope-media-files.nvim/",
-        dependencies = {
-            "nvim-lua/popup.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        event = "VeryLazy",
-        lazy = true,
-    }, ]]
     {
         -- dir = "~/git/image.nvim/",
         "constantitus/image.nvim",
