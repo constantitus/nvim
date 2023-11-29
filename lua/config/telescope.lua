@@ -1,4 +1,5 @@
 require("telescope").load_extension("undo")
+require("telescope").load_extension("git_worktree")
 -- require("telescope").load_extension("media_files")
 require("telescope").setup({
     extensions = {
@@ -20,6 +21,12 @@ end)
 vim.keymap.set("n", "<leader>N", function()
     require("telescope").extensions.notify.notify()
 end)
-vim.keymap.set("n", "<leader>pi", function()
-    require("telescope").extensions.media_files.media_files()
+vim.keymap.set("n", "<leader>gt", function()
+    require("telescope").extensions.git_worktree.git_worktrees()
 end)
+vim.keymap.set("n", "<leader>gT", function()
+    require("telescope").extensions.git_worktree.create_git_worktree()
+end)
+--[[ vim.keymap.set("n", "<leader>pi", function()
+    require("telescope").extensions.media_files.media_files()
+end) ]]

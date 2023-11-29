@@ -131,12 +131,6 @@ local plugins = {
         lazy = true,
     },
     {
-        "tpope/vim-fugitive",
-        cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff", "Gvdiff" },
-        event = { "BufReadPre", "BufNewFile" },
-        lazy = true,
-    },
-    {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.4",
         dependencies = {
@@ -145,6 +139,16 @@ local plugins = {
         },
         config = function() require("config.telescope") end,
         event = "VeryLazy",
+        lazy = true,
+    },
+    {
+        "tpope/vim-fugitive",
+        cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff", "Gvdiff" },
+        event = { "BufReadPre", "BufNewFile" },
+        lazy = true,
+    },
+    {
+        "theprimeagen/git-worktree.nvim",
         lazy = true,
     },
 
