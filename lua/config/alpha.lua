@@ -1,14 +1,4 @@
-local dashboard = require("alpha.themes.dashboard")
-dashboard.section.header.val = {
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
-    [[                                                                          ]],
+local rose = {
     [[           :                       ..,,..    ...,,..                      ]],
     [[          ,%,                .. ,#########::#########:,                   ]],
     [[          :#%%,           ,,:',####%%%%%%##:`::%%%%####,                  ]],
@@ -36,6 +26,8 @@ dashboard.section.header.val = {
     [[                           ~~~~``````''''~~~                              ]]
 }
 
+local dashboard = require("alpha.themes.dashboard")
+dashboard.section.header.val = rose
 local function button(sc, txt, keybind, keybind_opts)
     local opts = {
         position = "center",
@@ -67,6 +59,7 @@ dashboard.section.buttons.val = {
 dashboard.section.footer.opts.hl = "Constant"
 
 dashboard.opts.layout = {
+    { type = "padding", val = 10 },
     dashboard.section.header,
     { type = "padding", val = 2 },
     dashboard.section.footer,
