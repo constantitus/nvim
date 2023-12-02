@@ -74,8 +74,6 @@ vim.keymap.set("n", "<leader>nh", "<cmd>set hlsearch!<CR>")
 -- undotree
 vim.keymap.set("n", "<leader>u", "<Cmd>UndotreeToggle<CR>")
 
--- tree
--- vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>")
 -- oil
 vim.keymap.set("n", "<leader>t", "<cmd>Oil<CR>")
 
@@ -122,8 +120,7 @@ vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>")
 
 -- other plugins
 
-vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", { noremap = true, silent = true })
--- vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", opts)
 vim.keymap.set("n", "<leader>cr", "<cmd>ConvertHEXandRGB<cr>", opts)
 vim.keymap.set("n", "<leader>ch", "<cmd>ConvertHEXandHSL<cr>", opts)
 

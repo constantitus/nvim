@@ -4,4 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-require("user")
+require("config.lazy")
+require("config.remap")
+require("config.set")
+require("config.func")

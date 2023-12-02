@@ -1,47 +1,10 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+-- global functions
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.smartindent = true
-vim.opt.breakindent = true
-
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes:1"
-vim.opt.isfname:append("@-@")
-
-vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevelstart = 10
-vim.opt.foldtext = 'v:lua.require("essentials").simple_fold()'
-
-vim.opt.fillchars:append({eob=' ', fold=' ', foldopen="", foldsep=" ", foldclose=""})
-
--- laststatus set in config.staline
-vim.opt.laststatus = 0
-
-vim.opt.updatetime = 50
-
--- vim.opt.colorcolumn = "80"
-
--- Highlights and colors
+-- transparency and colorscheme
 function ColorMyPencils(color)
     color = color or "catppuccin-frappe"
     vim.cmd.colorscheme(color)
+    vim.api.nvim_set_hl(0, "VertSplit",                 { fg = "#737ab8" })
 
     vim.api.nvim_set_hl(0, "Normal", 				{ bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", 			{ bg = "none" })
@@ -57,22 +20,8 @@ function ColorMyPencils(color)
     vim.api.nvim_set_hl(0, "SpecialKey", 			{ bg = "none" })
     vim.api.nvim_set_hl(0, "SignColumn", 			{ bg = "none" })
 end
-
 ColorMyPencils()
 
-vim.api.nvim_set_hl(0, "VertSplit",                 { fg = "#737ab8" })
--- staline colors
-vim.api.nvim_set_hl(0, "StlFolders",          { fg="#f0c6c6", bg="none" })
-vim.api.nvim_set_hl(0, "StlGit",              { fg="#fab387", bg="none" })
-vim.api.nvim_set_hl(0, "StlLspName",          { fg="#1e66f5", bg="none" })
-vim.api.nvim_set_hl(0, "StlLsp",              { fg="#c6d0f5", bg="none" })
-vim.api.nvim_set_hl(0, "StlLine",             { fg="#7287fd", bg="none" })
-vim.api.nvim_set_hl(0, "StlHarpoon",          { fg="#cba6f7", bg="none" })
-vim.api.nvim_set_hl(0, "StlHarpoonCur",       { fg="#7287fd", bg="none" })
--- vim.api.nvim_set_hl(0, "StlCoolSymbol", { fg="#8839ef", bg="none" })
--- vim.api.nvim_set_hl(0, "StlRed",        { fg="#d20f39", bg="none" })
-
--- global functions
 P = function(v)
     print(vim.inspect(v))
     return v
@@ -89,7 +38,6 @@ end
 
 MOUSE = true
 vim.keymap.set("n", "<leader>nm", function() ToggleMouse() end)
-
 function ToggleMouse()
     local keys = {
         "<Left>",  "<C-Left>",  "<S-Left>",
@@ -104,13 +52,11 @@ function ToggleMouse()
         for i = 1, #keys do
             vim.keymap.set(modes, keys[i], "<Nop>")
         end
-        print("mouse & arrows disabled")
     else
         vim.opt.mouse = "a"
         for i = 1, #keys do
             vim.keymap.set(modes, keys[i], keys[i])
         end
-        print("mouse & arrows enabled")
     end
 
     MOUSE = not MOUSE
