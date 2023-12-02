@@ -174,7 +174,6 @@ local plugins = {
     },
     {
         "catppuccin/nvim",
-        as = "catpuccin",
         config = function() vim.cmd("colorscheme catppuccin") end,
         lazy = false,
     },

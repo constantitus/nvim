@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+vim.opt.breakindent = true
 
 vim.opt.wrap = false
 
@@ -21,6 +22,14 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes:1"
 vim.opt.isfname:append("@-@")
+
+vim.opt.foldenable = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 10
+vim.opt.foldtext = 'v:lua.require("essentials").simple_fold()'
+
+vim.opt.fillchars:append({eob=' ', fold=' ', foldopen="", foldsep=" ", foldclose=""})
 
 -- laststatus set in config.staline
 vim.opt.laststatus = 0
