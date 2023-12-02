@@ -77,3 +77,34 @@ R = function(name)
     RELOAD(name)
     return require(name)
 end
+
+MOUSE = true
+vim.keymap.set("n", "<leader>nm", function() ToggleMouse() end)
+
+function ToggleMouse()
+    local keys = {
+        "<Left>",  "<C-Left>",  "<S-Left>",
+        "<Right>", "<C-Right>", "<S-Right>",
+        "<Up>",    "<C-Up>",    "<S-Up>",
+        "<Down>",  "<C-Down>",  "<S-Down>",
+    }
+    local modes = {"n", "i", "x"}
+
+    if MOUSE then
+        vim.opt.mouse = ""
+        for i = 1, #keys do
+            vim.keymap.set(modes, keys[i], "<Nop>")
+        end
+        print("mouse & arrows disabled")
+    else
+        vim.opt.mouse = "a"
+        for i = 1, #keys do
+            vim.keymap.set(modes, keys[i], keys[i])
+        end
+        print("mouse & arrows enabled")
+    end
+
+    MOUSE = not MOUSE
+end
+-- disable mouse and arrows by default
+ToggleMouse()
