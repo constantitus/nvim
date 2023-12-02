@@ -153,6 +153,7 @@ return {
     {
         "tpope/vim-fugitive",
         cmd = { "G", "Git", "Gwrite", "Gread", "Gdiff", "Gvdiff" },
+        keys = {{ "<leader>gd", "<Cmd>Gvdiff<CR>" }},
         event = { "BufReadPre", "BufNewFile" },
     },
     {
