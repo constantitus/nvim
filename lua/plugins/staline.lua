@@ -12,22 +12,31 @@ return {
             if #marks < amount then
                 amount = #marks
             end
-            local str = "%#StlHarpoon#"
+            local str = "%#StlMarks#"
             for i = 1, amount do
                 if i == current
                 then
-                    str = str .. "[%#StlHarpoonCur#" .. keymaps[i] .. "%#StlHarpoon#]"
+                    str = str .. "[%#StlMarkCurr#" .. keymaps[i] .. "%#StlMarks#]"
                 else
                     str = str .. " " .. keymaps[i] .. " "
                 end
             end
             if current == nil then
-                str = str .. " %#StlHarpoonCur#󰛣 "
+                str = str .. " %#StlMarkCurr#󰛣 "
             else
-                str = str .. " %#StlHarpoonCur#󰛢 "
+                str = str .. " %#StlMarkCurr#󰛢 "
             end
 
             return str
+        end
+
+        local function show_macro_recording()
+            local recording_register = vim.fn.reg_recording()
+            if recording_register == "" then
+                return ""
+            else
+                return " %#StlRecord#󰑊 %#StlMacro#@" .. recording_register
+            end
         end
 
         require("staline").setup({
@@ -79,6 +88,7 @@ return {
                     { "StlFolders", "󰉋" }, { "StlFolders", "cwd" },
                     { "StlFolders",     "file_name" },
                     { "StlGit",         "branch" },
+                    show_macro_recording,
                 },
                 mid   = { { "StlLspName", "lsp_name" } },
                 right = {
@@ -119,8 +129,10 @@ return {
         vim.api.nvim_set_hl(0, "StlLspName",          { fg="#1e66f5", bg="none" })
         vim.api.nvim_set_hl(0, "StlLsp",              { fg="#c6d0f5", bg="none" })
         vim.api.nvim_set_hl(0, "StlLine",             { fg="#7287fd", bg="none" })
-        vim.api.nvim_set_hl(0, "StlHarpoon",          { fg="#cba6f7", bg="none" })
-        vim.api.nvim_set_hl(0, "StlHarpoonCur",       { fg="#7287fd", bg="none" })
+        vim.api.nvim_set_hl(0, "StlMarks",          { fg="#cba6f7", bg="none" })
+        vim.api.nvim_set_hl(0, "StlMarkCurr",       { fg="#7287fd", bg="none" })
+        vim.api.nvim_set_hl(0, "StlRecord",       { fg="#e78284", bg="none" })
+        vim.api.nvim_set_hl(0, "StlMacro",       { fg="#f0c6c6", bg="none" })
         -- vim.api.nvim_set_hl(0, "StlCoolSymbol", { fg="#8839ef", bg="none" })
         -- vim.api.nvim_set_hl(0, "StlRed",        { fg="#d20f39", bg="none" })
     end,
