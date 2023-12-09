@@ -23,7 +23,22 @@ return {
                         },
                     },
                 },
-                ["core.keybinds"] = {},
+                ["core.keybinds"] = {
+                    config = {
+                        hook = function(keybinds)
+                            -- Some extra keymaps for todo lists.
+                            local leader = keybinds.leader
+                            keybinds.remap_event("norg", "n", leader .. "-", "core.qol.todo_items.todo.task_pending")
+                            keybinds.remap_event("norg", "n", leader .. "_", "core.qol.todo_items.todo.task_cancelled")
+                            keybinds.remap_event("norg", "n", leader .. "x", "core.qol.todo_items.todo.task_done")
+                            keybinds.remap_event("norg", "n", leader .. "<space>", "core.qol.todo_items.todo.task_undone")
+                            keybinds.remap_event("norg", "n", leader .. "!", "core.qol.todo_items.todo.task_important")
+                            keybinds.remap_event("norg", "n", leader .. "?", "core.qol.todo_items.todo.task_ambiguous")
+                            keybinds.remap_event("norg", "n", leader .. "=", "core.qol.todo_items.todo.task_on_hold")
+                            keybinds.remap_event("norg", "n", leader .. "+", "core.qol.todo_items.todo.task_recurring")
+                        end,
+                    }
+                },
             },
         })
         vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
