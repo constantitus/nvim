@@ -31,8 +31,9 @@ return {
             local opts = { buffer = 0 }
             -- makes <Esc> work in terminal
             vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
-
             vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+            -- Fix shift-space clearing text
+            vim.keymap.set("t", "<S-space>", "<space>", opts)
         end
 
         vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
