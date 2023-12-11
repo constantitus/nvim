@@ -22,6 +22,17 @@ function ColorMyPencils(color)
 end
 ColorMyPencils()
 
+-- toggle colorcolumn
+vim.keymap.set("n", "<leader>nc", function() ToggleColorColumn() end)
+function ToggleColorColumn()
+    local value = vim.api.nvim_get_option_value("colorcolumn", {})
+    if value == "" then
+        vim.api.nvim_set_option_value("colorcolumn", "80", {})
+    else
+        vim.api.nvim_set_option_value("colorcolumn", "", {})
+    end
+end
+
 P = function(v)
     print(vim.inspect(v))
     return v
