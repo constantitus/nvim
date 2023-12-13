@@ -14,8 +14,8 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("v", "<leader>s", [["qy:%s/<C-r>q//gI<left><left><left>]])
 
 -- moving selected items with J K
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {silent=true})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {silent=true})
 
 -- J keeps your cursor location
 vim.keymap.set("n", "J", "mzJ`z")
