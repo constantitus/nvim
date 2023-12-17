@@ -45,6 +45,8 @@ vim.keymap.set("n", "<C-b>", "<C-b>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- vim.keymap.set("n", "<C-j>", "j<C-e>")
+-- vim.keymap.set("n", "<C-k>", "k<C-y>")
 vim.keymap.set("n", "<C-j>", "jzz")
 vim.keymap.set("n", "<C-k>", "kzz")
 
