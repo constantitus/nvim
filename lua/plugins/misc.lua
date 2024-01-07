@@ -159,4 +159,11 @@ return {
     {
         "theprimeagen/git-worktree.nvim",
     },
+
+    -- meme --
+    ----------
+    {
+        "eandrju/cellular-automaton.nvim",
+        cmd = { "CellularAutomaton" }
+    },
 }

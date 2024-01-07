@@ -93,6 +93,7 @@ vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR><cmd>IBLToggle<CR>")
 -- dap
 vim.keymap.set("n", "<leader>dt", function() require('dapui').toggle() end)
 vim.keymap.set("n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", {noremap=true})
+vim.keymap.set("n", "<F6>", "<Cmd>DapToggleBreakpoint<CR>", {noremap=true})
 vim.keymap.set("n", "<leader>dc", "<Cmd>DapContinue<CR>", {noremap=true})
 vim.keymap.set("n", "<leader>dr", function() require('dapui').open({reset = true}) end)
 
