@@ -33,7 +33,13 @@ return {
                         row = "50%"
                     }
                 }
-            }
+            },
+                routes = {
+                    {
+                        filter = { event = "notify", find = "No information available" },
+                        opts = { skip = true },
+                    },
+                },
         })
         require("notify").setup({
             background_colour = "#000000",
