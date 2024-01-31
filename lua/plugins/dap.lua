@@ -53,6 +53,10 @@ return {
             {
                 type = "lldb",
                 request = "launch",
+                args = function()
+                    local args_string = vim.fn.input("Input arguments: ")
+                    return vim.split(args_string, " ")
+                end,
                 program = function()
                     return vim.fn.input("Path to executable: ", vim.fn.getcwd().."/", "file")
                 end,
@@ -69,6 +73,10 @@ return {
                 request = "launch",
                 program = function()
                     return vim.fn.input("Path to executable: ", vim.fn.getcwd().."/", "file")
+                end,
+                args = function()
+                    local args_string = vim.fn.input("Input arguments: ")
+                    return vim.split(args_string, " ")
                 end,
                 cwd = "${workspaceFolder}",
                 terminal = "integrated",
